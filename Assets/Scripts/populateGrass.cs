@@ -9,12 +9,13 @@ public class populateGrass : MonoBehaviour
     public float xSpace, ySpace;
     public GameObject grass;
     public GameObject rock;
-    // Start is called before the first frame update
+
+    // On start populate gameplan with 90% grass tiles and 10% rocks. (This was randomly picked and the layout of the map should be custom :) )
     void Start()
     {
-        for (int i = 0; i < columnLenght*rowLenght; i++)
+        for (int i = 0; i < columnLenght * rowLenght; i++)
         {
-            if (Random.Range(0,10) < 9)
+            if (Random.Range(0, 10) < 9)
             {
                 Instantiate(grass, new Vector3(xStart + xSpace * (i % columnLenght), yStart + -ySpace * (i / columnLenght)), Quaternion.identity);
             }
@@ -24,12 +25,5 @@ public class populateGrass : MonoBehaviour
             }
         }
     }
-
-    // Update is called once per frame
-    /*
-    void Update()
-    {
-        
-    }
-    */
 }
+

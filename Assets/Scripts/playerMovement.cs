@@ -15,6 +15,8 @@ public class playerMovement : MonoBehaviour
     public InputAction playerControls;
     public Animator animator;
 
+
+    // This section is recommended by documentation
     private void OnEnable()
     {
         playerControls.Enable();
@@ -23,14 +25,16 @@ public class playerMovement : MonoBehaviour
     {
         playerControls.Disable();
     }
-
+    ////////////////
+    
 
 
     // Update is called once per frame
     void Update()
     {
+        // read direction from playerControls
         movementDirection = playerControls.ReadValue<Vector2>();
-
+        // Send directional info to the animator
         animator.SetFloat("Horizontal", movementDirection.x);
         animator.SetFloat("Vertical", movementDirection.y);
         animator.SetFloat("Speed", movementDirection.sqrMagnitude);
@@ -39,16 +43,18 @@ public class playerMovement : MonoBehaviour
     void FixedUpdate()
     {
         momentum += movementDirection * acceleration;
+        // If we are almost standing still. kill momentum
         if (movementDirection.magnitude < 0.5)
         {
             momentum.x = 0;
             momentum.y = 0;
         }
+        // if we are going faster that "maxSpeed" cap speed
         if (momentum.magnitude > maxSpeed)
         {
             momentum = momentum.normalized * maxSpeed;
         }
-        
+        // make sure that we are always only moving in the (nwse) directions
         if (Mathf.Abs(movementDirection.x) > Mathf.Abs(movementDirection.y)) {
             move.x = momentum.x;
             move.y = 0;
@@ -60,8 +66,7 @@ public class playerMovement : MonoBehaviour
             move.y = momentum.y;
             momentum.x = 0;
         }
-        //movement
-        // rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
+        // Apply movement
         rb.MovePosition(rb.position + move * Time.fixedDeltaTime);
         Debug.Log(move);
     }
