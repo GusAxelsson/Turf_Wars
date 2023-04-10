@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3140421341587220244}
   - component: {fileID: 2701680875142536479}
   - component: {fileID: 7729048017482451960}
-  - component: {fileID: 2683591546832535278}
   m_Layer: 0
   m_Name: Grass
   m_TagString: Untagged
@@ -32,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2701680875142536479
 SpriteRenderer:
@@ -74,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 455089073, guid: 200ce11328a32044681f679e56a3bec8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -121,18 +120,3 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.4
---- !u!114 &2683591546832535278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8414780753456301178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 911120b9e47323341a682930379cdb10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cutGrass: {fileID: 8300000, guid: cbb4f7bfbbe962d4b9b31c3afa851404, type: 3}
-  plantGrass: {fileID: 8300000, guid: 7653e637c77852544b741a6c608eb19a, type: 3}
-  globalEffectPlayer: {fileID: 0}
