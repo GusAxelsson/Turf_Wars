@@ -6,8 +6,19 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
+<<<<<<< HEAD
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+=======
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/StartScreen.unity
+    guid: bb9129403657a46228c9bbeef0fdc5ae
+  - enabled: 1
+    path: Assets/Scenes/MapSelection.unity
+    guid: e0d0ca69266504fd49f20539e9747714
+>>>>>>> fc66683 (added start screen)
   - enabled: 1
     path: Assets/Scenes/StandardMap.unity
     guid: 2e18328139b20bf4cbc0c1da79ecd37c
