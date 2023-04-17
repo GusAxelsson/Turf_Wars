@@ -909,7 +909,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winnerText: {fileID: 1804390854}
-  score: {fileID: 0}
+  score: {fileID: 1892422193}
 --- !u!1 &503342277
 GameObject:
   m_ObjectHideFlags: 0
@@ -3199,7 +3199,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.4}
+  m_AnchoredPosition: {x: 0, y: 4.4}
   m_SizeDelta: {x: 235.38, y: 51.01}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2072883766
