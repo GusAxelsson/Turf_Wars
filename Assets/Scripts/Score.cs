@@ -5,16 +5,8 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-    //TileManager tilemanager;
-    //[SerializeField] GameObject populateMap; 
-
     public TileManager tilemanager;
-
     public Slider scoreSlider;
-
-    //void Awake() {
-      //  tilemanager = populateMap.GetComponent<TileManager>();
-   // }
 
     void Update(){
        scoreSlider.value = tilemanager.GetGrassPercentage();
