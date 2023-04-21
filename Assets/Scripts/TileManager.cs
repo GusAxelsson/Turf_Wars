@@ -22,7 +22,7 @@ public class TileManager : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(GetGrassPercentage());   
+        //Debug.Log(GetGrassPercentage());   
     }
 
     /// <summary>

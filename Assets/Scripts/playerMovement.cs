@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class playerMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
-    public float maxSpeed = 5f;
+    public float maxSpeed = 6f;
     Vector2 movementDirection;
     Vector2 lastAnimDirection = new Vector2(0, 1);
     public bool logMovement = false;
@@ -15,6 +15,16 @@ public class playerMovement : MonoBehaviour
     public Animator animator;
     public TileManager tileManager;
     public bool plant;
+
+    public bool speedPower;
+    public float speedPowerTime = 6.0f;
+    public float currentSpeedTimer = 6.0f;
+
+    public bool invertPower;
+    public float invertPowerTime = 6.0f;
+    public float currentInvertTimer = 6.0f;
+
+
 
     // This section is recommended by documentation
     private void OnEnable()
@@ -99,7 +109,55 @@ public class playerMovement : MonoBehaviour
             }
         }
 
-        // Apply movement
+
+
+        //////// Powerups logic  //////////
+
+        //Speedpower//
+        // if speedpower is still true count down timer
+        if (speedPower)
+        {
+            currentSpeedTimer -= Time.deltaTime;
+        }
+        // if current speedtimer is zero or smaller. set speedpower false and revert speed to normal
+        if(currentSpeedTimer <= 0)
+        {
+            speedPower = false;
+            maxSpeed = 6;
+        }
+
+        //InvertPower//
+        if (invertPower)
+        {
+            currentInvertTimer -= Time.deltaTime;
+            momentum = -momentum;
+        }
+        if (currentInvertTimer <= 0)
+        {
+            invertPower = false;
+        }
+
+
+        // Finally apply movement
         rb.MovePosition(rb.position + momentum * Time.fixedDeltaTime);
     }
+
+
+    public void powerUpCollected(int powerUp)
+    {
+        Debug.Log("powerUpCollectedCalled");
+        if (powerUp == 1)
+        {
+            speedPower = true;
+            currentSpeedTimer = speedPowerTime;
+            maxSpeed = 12;
+        }
+        if (powerUp == 2)
+        {
+            Debug.Log("Im being inverted! ");
+            invertPower = true;
+            currentInvertTimer = invertPowerTime;
+        }
+    }
+
 }
