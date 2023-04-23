@@ -308,7 +308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 183733009}
-  maxSpeed: 6
+  maxSpeed: 5
   logMovement: 0
   playerControls:
     m_Name: Player Controls

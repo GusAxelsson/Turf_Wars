@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class playerMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
-    public float maxSpeed = 6f;
+    public float maxSpeed = 5f;
     Vector2 movementDirection;
     Vector2 lastAnimDirection = new Vector2(0, 1);
     public bool logMovement = false;
@@ -123,7 +123,7 @@ public class playerMovement : MonoBehaviour
         if(currentSpeedTimer <= 0)
         {
             speedPower = false;
-            maxSpeed = 6;
+            maxSpeed = 5;
         }
 
         //InvertPower//
