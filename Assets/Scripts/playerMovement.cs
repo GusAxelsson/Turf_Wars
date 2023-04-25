@@ -26,7 +26,7 @@ public class playerMovement : MonoBehaviour
 
 
 
-    // This section is recommended by documentation
+    // This section is recommended by documentation //
     private void OnEnable()
     {
         playerControls.Enable();
@@ -35,7 +35,7 @@ public class playerMovement : MonoBehaviour
     {
         playerControls.Disable();
     }
-    ////////////////
+    //////////////////////////////////////////////////
 
     /// <summary>
     /// Ensures that a vector does not include diagonal movement.
