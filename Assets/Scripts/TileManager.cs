@@ -4,17 +4,21 @@ using UnityEngine;
 public class TileManager : MonoBehaviour
 {
     public GameObject grassPrefab;
-    public float xStart = -9.5F;
-    public float yStart = 2.5F;
+    public float xStart = -8.5F;
+    public float yStart = 3.0F;
     public float tileSize = 0.5F;
-    public int gridWidth = 40;
+    public int gridWidth = 36;
     public int gridHeight = 16;
     public float positioningOffset = 0.1F;
     private GameObject[,] grid;
+    private float grassSpriteH = 0.0F;
+    private float grassSpriteW = 0.0F;
     private int totalGrassTiles;
 
     void Start()
     {
+        grassSpriteH = grassPrefab.GetComponent<SpriteRenderer>().bounds.size.y / 2;
+        grassSpriteW = grassPrefab.GetComponent<SpriteRenderer>().bounds.size.x / 2;
         grid = new GameObject[gridWidth, gridHeight];
         totalGrassTiles = 0;
         InitializeGrid();
@@ -32,7 +36,23 @@ public class TileManager : MonoBehaviour
     {
         float xOffset = Random.Range(-positioningOffset, positioningOffset);
         float yOffset = Random.Range(-positioningOffset, positioningOffset);
-        return Instantiate(grassPrefab, new Vector3(xStart + x * tileSize + xOffset, yStart - y * tileSize - yOffset, 0), Quaternion.identity);
+        if (x == 0) 
+        {
+            xOffset = Random.Range(0, positioningOffset);
+        }
+        if (x == gridWidth - 1)
+        {
+            xOffset = Random.Range(-positioningOffset, 0);
+        }
+        if (y == 0)
+        {
+            yOffset = Random.Range(-positioningOffset, 0);
+        }
+        if (y == gridHeight - 1)
+        {
+            yOffset = Random.Range(0, positioningOffset);
+        }
+        return Instantiate(grassPrefab, new Vector3(xStart + grassSpriteW +(x * tileSize) + xOffset, yStart + grassSpriteH - (y * tileSize) + yOffset, 0), Quaternion.identity);
     }
 
     /// <summary>
