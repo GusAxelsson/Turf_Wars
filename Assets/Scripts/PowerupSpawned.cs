@@ -7,11 +7,14 @@ public class PowerupSpawned : MonoBehaviour
     public GameObject speedPower;
     public GameObject invertPower;
 
+    public bool debugSpawnArea = false;
+
     // map bouderies
     private float xStart = -8.5f;
     private float yStart = 2.5f;
     private float xEnd = 8.5f;
     private float yEnd = -4.5f;
+
 
     // float timers
     private float lastPowerUpTime = 0.0f;
@@ -19,7 +22,7 @@ public class PowerupSpawned : MonoBehaviour
 
     // amount of powerups on map
     public int totalPowerups = 0;
-    public int maxAllowedPowerups = 6;
+    public int maxAllowedPowerups = 8;
 
     private void powerToSpawn()
     {
@@ -44,7 +47,11 @@ public class PowerupSpawned : MonoBehaviour
     void Update()
     {
         // If its time to spawn a powerup again
-        if(Time.time - lastPowerUpTime >= timeUntilPowerup & totalPowerups <= maxAllowedPowerups)
+        if (debugSpawnArea & totalPowerups <= 100)
+        {
+            powerToSpawn();
+        }
+        else if (Time.time - lastPowerUpTime >= timeUntilPowerup & totalPowerups <= maxAllowedPowerups)
         {
             // keep track of powerups on the map
             lastPowerUpTime = Time.time;
