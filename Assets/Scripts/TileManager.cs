@@ -3,13 +3,15 @@ using UnityEngine;
 
 public class TileManager : MonoBehaviour
 {
+    // public vars
     public GameObject grassPrefab;
-    public float xStart = -8.5F;
+    public float xStart = -9.0F;
     public float yStart = 3.0F;
     public float tileSize = 0.5F;
     public int gridWidth = 36;
     public int gridHeight = 16;
     public float positioningOffset = 0.1F;
+    // private vars
     private GameObject[,] grid;
     private float grassSpriteH = 0.0F;
     private float grassSpriteW = 0.0F;

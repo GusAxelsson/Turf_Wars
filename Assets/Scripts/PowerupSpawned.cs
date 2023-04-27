@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class PowerupSpawned : MonoBehaviour
 {
-    public GameObject speedPower;
-    public GameObject invertPower;
+    public GameObject[] powerList;
 
     public bool debugSpawnArea = false;
 
     // map bouderies
-    private float xStart = -8.5f;
-    private float yStart = 2.5f;
-    private float xEnd = 8.5f;
-    private float yEnd = -4.5f;
+    private float xStart = -9.0f;
+    private float yStart = 3.0f;
+    private int powerGridW = 18;
+    private int powerGridH = 8;
+    private GameObject[,] powerGrid;
 
 
     // float timers
@@ -24,42 +24,46 @@ public class PowerupSpawned : MonoBehaviour
     public int totalPowerups = 0;
     public int maxAllowedPowerups = 8;
 
-    private void powerToSpawn()
+    private void PowerToSpawn() 
     {
-        int powerToSpawn = Random.Range(1, 3);
-        if (powerToSpawn == 1)
+        int powerIndex = Random.Range(0, powerList.Length);
+        int xIndex = Random.Range(0, powerGridW);
+        int yIndex = Random.Range(0, powerGridH);
+        if (powerGrid[xIndex, yIndex] != null)
         {
-            Instantiate(speedPower, new Vector3(Random.Range(xStart, xEnd), Random.Range(yEnd, yStart), 0), Quaternion.identity);
+            PowerToSpawn();
         }
         else
         {
-            Instantiate(invertPower, new Vector3(Random.Range(xStart, xEnd), Random.Range(yEnd, yStart), 0), Quaternion.identity);
+            powerGrid[xIndex, yIndex] = Instantiate(powerList[powerIndex], new Vector3(xStart + xIndex + 0.5F, yStart - yIndex - 0.5F, 0), Quaternion.identity);
         }
-    }
+     }
 
     // Start is called before the first frame update
     void Start()
     {
         lastPowerUpTime = Time.time;
+        powerGrid = new GameObject[powerGridW, powerGridH];
     }
 
     // Update is called once per frame
     void Update()
     {
-        // If its time to spawn a powerup again
+        // debug
         if (debugSpawnArea & totalPowerups <= 100)
         {
-            powerToSpawn();
+            PowerToSpawn();
         }
+        // If its time to spawn a powerup again
         else if (Time.time - lastPowerUpTime >= timeUntilPowerup & totalPowerups <= maxAllowedPowerups)
         {
             // keep track of powerups on the map
             lastPowerUpTime = Time.time;
-            timeUntilPowerup = Random.Range(3.0f, 8.0f);
+            timeUntilPowerup = Random.Range(1.0f, 6.0f);
             totalPowerups += 1;
 
             // spawn powerup
-            powerToSpawn();
+            PowerToSpawn();
         }
     }
 }

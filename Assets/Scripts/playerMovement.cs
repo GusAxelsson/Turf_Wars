@@ -16,14 +16,19 @@ public class playerMovement : MonoBehaviour
     public TileManager tileManager;
     public bool plant;
 
+    // Powerup variables and timers 
+    // speedPowerup
     public bool speedPower;
     public float speedPowerTime = 6.0f;
     public float currentSpeedTimer = 6.0f;
-
+    // Invert Powerup
     public bool invertPower;
     public float invertPowerTime = 6.0f;
     public float currentInvertTimer = 6.0f;
-
+    // Stun Powerup(debuff)
+    public bool stunPower;
+    public float stunPowerTime = 6.0f;
+    public float currentStunTimer = 6.0f;
 
 
     // This section is recommended by documentation //
@@ -137,6 +142,19 @@ public class playerMovement : MonoBehaviour
             invertPower = false;
         }
 
+        // StunPower//
+        if (stunPower)
+        {
+            currentStunTimer -= Time.deltaTime;
+            momentum.x = 0;
+            momentum.y = 0;
+            // Here a stun animation should probably be called
+        }
+        if (currentStunTimer <= 0)
+        {
+            stunPower = false;
+        }
+
 
         // Finally apply movement
         rb.MovePosition(rb.position + momentum * Time.fixedDeltaTime);
@@ -145,7 +163,6 @@ public class playerMovement : MonoBehaviour
 
     public void powerUpCollected(int powerUp)
     {
-        Debug.Log("powerUpCollectedCalled");
         if (powerUp == 1)
         {
             speedPower = true;
@@ -154,9 +171,13 @@ public class playerMovement : MonoBehaviour
         }
         if (powerUp == 2)
         {
-            Debug.Log("Im being inverted! ");
             invertPower = true;
             currentInvertTimer = invertPowerTime;
+        }
+        if (powerUp == 3)
+        {
+            stunPower = true;
+            currentStunTimer = stunPowerTime;
         }
     }
 
