@@ -1084,8 +1084,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grassPrefab: {fileID: 7077672905494901799, guid: 6eb596bb83dec0b42b7656442b004f6d, type: 3}
-  xStart: -8.5
-  yStart: 3
+  xStart: -9
+  yStart: 2.5
   tileSize: 0.5
   gridWidth: 36
   gridHeight: 16
@@ -2372,7 +2372,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedPower: {fileID: 6807452538895283871, guid: a9f6e062dfd0fd245bc8821be10d3c40, type: 3}
   invertPower: {fileID: 4115589561685535482, guid: 1bc5d39f360cd86418a9ef631fbe86ed, type: 3}
-  debugSpawnArea: 0
+  powerList:
+  - {fileID: 6807452538895283871, guid: a9f6e062dfd0fd245bc8821be10d3c40, type: 3}
+  - {fileID: 4115589561685535482, guid: 1bc5d39f360cd86418a9ef631fbe86ed, type: 3}
+  debugSpawnArea: 1
   totalPowerups: 0
   maxAllowedPowerups: 8
 --- !u!4 &1530636567

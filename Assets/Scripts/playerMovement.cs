@@ -145,7 +145,6 @@ public class playerMovement : MonoBehaviour
 
     public void powerUpCollected(int powerUp)
     {
-        Debug.Log("powerUpCollectedCalled");
         if (powerUp == 1)
         {
             speedPower = true;
@@ -154,7 +153,6 @@ public class playerMovement : MonoBehaviour
         }
         if (powerUp == 2)
         {
-            Debug.Log("Im being inverted! ");
             invertPower = true;
             currentInvertTimer = invertPowerTime;
         }
