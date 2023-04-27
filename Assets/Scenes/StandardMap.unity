@@ -596,6 +596,9 @@ MonoBehaviour:
   invertPower: 0
   invertPowerTime: 6
   currentInvertTimer: 6
+  stunPower: 0
+  stunPowerTime: 6
+  currentStunTimer: 6
 --- !u!50 &183733009
 Rigidbody2D:
   serializedVersion: 4
@@ -663,7 +666,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: -313689619, guid: 200ce11328a32044681f679e56a3bec8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2040,6 +2043,9 @@ MonoBehaviour:
   invertPower: 0
   invertPowerTime: 6
   currentInvertTimer: 6
+  stunPower: 0
+  stunPowerTime: 6
+  currentStunTimer: 6
 --- !u!50 &1280035394
 Rigidbody2D:
   serializedVersion: 4
@@ -2107,7 +2113,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21823317, guid: 200ce11328a32044681f679e56a3bec8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2370,12 +2376,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a31c810d10fe08a459369e319e0e5ebe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedPower: {fileID: 6807452538895283871, guid: a9f6e062dfd0fd245bc8821be10d3c40, type: 3}
-  invertPower: {fileID: 4115589561685535482, guid: 1bc5d39f360cd86418a9ef631fbe86ed, type: 3}
   powerList:
   - {fileID: 6807452538895283871, guid: a9f6e062dfd0fd245bc8821be10d3c40, type: 3}
   - {fileID: 4115589561685535482, guid: 1bc5d39f360cd86418a9ef631fbe86ed, type: 3}
-  debugSpawnArea: 1
+  - {fileID: 3277363642845570955, guid: 05cec73ca1baa6f44b3cd1c8e6810e7f, type: 3}
+  debugSpawnArea: 0
   totalPowerups: 0
   maxAllowedPowerups: 8
 --- !u!4 &1530636567

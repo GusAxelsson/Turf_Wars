@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PowerupSpawned : MonoBehaviour
 {
-    public GameObject speedPower;
-    public GameObject invertPower;
     public GameObject[] powerList;
 
     public bool debugSpawnArea = false;
@@ -28,7 +26,7 @@ public class PowerupSpawned : MonoBehaviour
 
     private void PowerToSpawn() 
     {
-        int powerIndex = Random.Range(0, 2);
+        int powerIndex = Random.Range(0, powerList.Length);
         int xIndex = Random.Range(0, powerGridW);
         int yIndex = Random.Range(0, powerGridH);
         if (powerGrid[xIndex, yIndex] != null)
