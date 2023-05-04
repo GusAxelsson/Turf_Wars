@@ -11,7 +11,7 @@ public class SpeedPowerup : MonoBehaviour
         if (triggered == false)
         {
             triggered = true;
-            collision.GetComponent<playerMovement>().powerUpCollected(1);
+            collision.GetComponent<MovementController>().powerUpCollected(1);
             GameObject.Find("PowerupSpawner").GetComponent<PowerupSpawned>().totalPowerups -= 1;
             Destroy(gameObject);
         }
