@@ -6,7 +6,7 @@ using TMPro;
 public class Timer : MonoBehaviour
 {
 
-    public float timer = 180;
+    public float timer = 181;
     public TextMeshProUGUI timeText;
 
     public GameOver gameOverScreen;
