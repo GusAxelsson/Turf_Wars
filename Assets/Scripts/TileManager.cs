@@ -19,8 +19,14 @@ public class TileManager : MonoBehaviour
 
     void Start()
     {
+        /*
         grassSpriteH = grassPrefab.GetComponent<SpriteRenderer>().bounds.size.y / 2;
         grassSpriteW = grassPrefab.GetComponent<SpriteRenderer>().bounds.size.x / 2;
+        */
+        
+        xStart = xStart + grassPrefab.GetComponent<SpriteRenderer>().bounds.size.x / 2;
+        yStart = yStart + grassPrefab.GetComponent<SpriteRenderer>().bounds.size.y / 2;
+        
         grid = new GameObject[gridWidth, gridHeight];
         totalGrassTiles = 0;
         InitializeGrid();
@@ -29,6 +35,11 @@ public class TileManager : MonoBehaviour
     void Update()
     {
         //Debug.Log(GetGrassPercentage());   
+    }
+
+    public void DebugGridPos(Vector2 currentPos)
+    {
+        Debug.Log(WorldToGrid(currentPos.x,currentPos.y));
     }
 
     /// <summary>
@@ -87,8 +98,8 @@ public class TileManager : MonoBehaviour
     /// </summary>
     private Vector2Int WorldToGrid(float worldX, float worldY)
     {
-        int x = Mathf.FloorToInt((worldX - xStart) / tileSize);
-        int y = Mathf.FloorToInt((yStart - worldY) / tileSize);
+        int x = Mathf.RoundToInt((worldX - xStart) / tileSize);
+        int y = Mathf.RoundToInt((yStart - worldY) / tileSize);
         x = Mathf.Clamp(x, 0, gridWidth - 1);
         y = Mathf.Clamp(y, 0, gridHeight - 1);
         return new Vector2Int(x, y);
@@ -98,14 +109,13 @@ public class TileManager : MonoBehaviour
     /// Modifies an area in the grid around a certain position by either planting or mowing grass.
     /// Depending on the player type, this will either create or destroy grass.
     /// </summary>
-    private void AffectArea(Vector2 playerPosition, bool plant)
+    private void AffectArea(Vector2 playerPosition, bool plant, float range)
     {
         // Get the player's position within the grid.
         Vector2Int gridPosition = WorldToGrid(playerPosition.x, playerPosition.y);
         
         // Helper variables for calculating the range of candidate tiles...
-        float radius = 0.7F;
-        int maxDistance = Mathf.CeilToInt(radius / tileSize);
+        int maxDistance = Mathf.CeilToInt(range / tileSize);
 
         // Calculate the range of candidate tiles.
         int minX = Mathf.Clamp(gridPosition.x - maxDistance, 0, gridWidth - 1);
@@ -130,7 +140,7 @@ public class TileManager : MonoBehaviour
                 float distance = Vector2.Distance(playerPosition, grassPosition);
 
                 // GUARD: Bail, if the player is too far away.
-                if (distance > radius)
+                if (distance > range)
                 {
                     continue;
                 }
@@ -152,14 +162,14 @@ public class TileManager : MonoBehaviour
         }
     }
 
-    public void Mow(Vector2 playerPosition)
+    public void Mow(Vector2 playerPosition, float range = 0.7F)
     {
-        AffectArea(playerPosition, false);
+        AffectArea(playerPosition, false, range);
     }
 
-    public void Plant(Vector2 playerPosition)
+    public void Plant(Vector2 playerPosition, float range = 0.7F)
     {
-        AffectArea(playerPosition, true);
+        AffectArea(playerPosition, true, range);
     }
 
     public float GetGrassPercentage()
