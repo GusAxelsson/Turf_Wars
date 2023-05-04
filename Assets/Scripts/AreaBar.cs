@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Score : MonoBehaviour
+public class AreaBar : MonoBehaviour
 {
     public TileManager tilemanager;
     public Slider scoreSlider;

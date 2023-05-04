@@ -6,11 +6,11 @@ using TMPro;
 public class GameOver : MonoBehaviour
 {
     public TextMeshProUGUI winnerText;
-    public Score score;
+    public AreaBar areaBar;
 
     public void GameIsOver()
     {
         gameObject.SetActive(true);
-        winnerText.text = score.finalScore(); 
+        winnerText.text = areaBar.finalScore(); 
     }
 }
