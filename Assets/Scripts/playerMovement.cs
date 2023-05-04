@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using UnityEngine.UI;
 
 public class playerMovement : MonoBehaviour
 {
@@ -33,8 +33,8 @@ public class playerMovement : MonoBehaviour
     public float currentRangeTimer = 4.0f;
     // Stun Powerup(debuff) 3
     public bool stunPower;
-    public float stunPowerTime = 1.0f;
-    public float currentStunTimer = 1.0f;
+    public float stunPowerTime = 6.0f;
+    public float currentStunTimer = 6.0f;
     
 
 
@@ -130,12 +130,15 @@ public class playerMovement : MonoBehaviour
         if (speedPower)
         {
             currentSpeedTimer -= Time.deltaTime;
+            // test = GameObject.Find("PlantBoosterInfo");
+            // GameObject.Find("PowerupSpawner").SetActive(false);
         }
         // if current speedtimer is zero or smaller. set speedpower false and revert speed to normal
         if(currentSpeedTimer <= 0)
         {
             speedPower = false;
             maxSpeed = 5;
+            // test.SetActive(true);
         }
 
         //InvertPower//
