@@ -545,7 +545,7 @@ GameObject:
   - component: {fileID: 183733009}
   - component: {fileID: 183733007}
   - component: {fileID: 183733012}
-  - component: {fileID: 183733008}
+  - component: {fileID: 183733014}
   - component: {fileID: 183733013}
   m_Layer: 0
   m_Name: Player_Plant
@@ -599,87 +599,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
---- !u!114 &183733008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 183733006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08aa44c3a3a74624abaf24bda77d4795, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 183733009}
-  maxSpeed: 5
-  logMovement: 0
-  playerControls:
-    m_Name: Player Controls
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 232d6c8d-3c9f-4739-9228-a915750d0c1c
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 2D Vector
-      m_Id: b36af922-0eba-4623-ad6a-427e39c79b21
-      m_Path: 2DVector
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Player Controls
-      m_Flags: 4
-    - m_Name: up
-      m_Id: 1820d0d6-b895-46d7-af44-28eca1507cc8
-      m_Path: <Keyboard>/w
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Player Controls
-      m_Flags: 8
-    - m_Name: down
-      m_Id: 9312591c-88ae-4abb-b4ff-ae00c0128f13
-      m_Path: <Keyboard>/s
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Player Controls
-      m_Flags: 8
-    - m_Name: left
-      m_Id: 64efdd8c-5a6a-4d1e-ac84-b3ca38d76082
-      m_Path: <Keyboard>/a
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Player Controls
-      m_Flags: 8
-    - m_Name: right
-      m_Id: ea293ff9-f197-40b9-8e0a-05622fb0df97
-      m_Path: <Keyboard>/d
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Player Controls
-      m_Flags: 8
-    m_Flags: 0
-  animator: {fileID: 183733013}
-  tileManager: {fileID: 798685488}
-  plant: 1
-  speedPower: 0
-  speedPowerTime: 6
-  currentSpeedTimer: 0
-  invertPower: 0
-  invertPowerTime: 6
-  currentInvertTimer: 6
-  rangePower: 0
-  defaultRange: 0.7
-  currentRange: 0.7
-  rangePowerTime: 4
-  currentRangeTimer: 4
-  stunPower: 0
-  stunPowerTime: 6
-  currentStunTimer: 6
 --- !u!50 &183733009
 Rigidbody2D:
   serializedVersion: 4
@@ -840,6 +759,88 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &183733014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183733006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7072d70c2e532ed47bb9711e3ffbf991, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 183733009}
+  maxSpeed: 5
+  directionFacing: {x: 0, y: 1}
+  logMovement: 0
+  playerControls:
+    m_Name: Player Controls
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 76cb0fbb-f1e6-458a-9bf2-d47882da0be5
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 2D Vector
+      m_Id: e0ab02b3-5daa-46da-8f4e-d26f0ac3f656
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Controls
+      m_Flags: 4
+    - m_Name: up
+      m_Id: fe183558-b1bf-4a9d-9fe8-4df4c1e0b8a6
+      m_Path: <Keyboard>/w
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Controls
+      m_Flags: 8
+    - m_Name: down
+      m_Id: 72343623-12a7-4231-8377-92c103d18068
+      m_Path: <Keyboard>/s
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Controls
+      m_Flags: 8
+    - m_Name: left
+      m_Id: 565cc056-a4cf-464f-9837-0c37194256c5
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Controls
+      m_Flags: 8
+    - m_Name: right
+      m_Id: 70e1a95b-caff-435a-8776-bc0816bd1e01
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Controls
+      m_Flags: 8
+    m_Flags: 0
+  animator: {fileID: 183733013}
+  tileManager: {fileID: 798685488}
+  plant: 1
+  speedPower: 0
+  speedPowerTime: 6
+  currentSpeedTimer: 6
+  invertPower: 0
+  invertPowerTime: 6
+  currentInvertTimer: 6
+  rangePower: 0
+  defaultRange: 0.7
+  currentRange: 0.7
+  rangePowerTime: 4
+  currentRangeTimer: 4
+  stunPower: 0
+  stunPowerTime: 6
+  currentStunTimer: 6
 --- !u!1 &252950027
 GameObject:
   m_ObjectHideFlags: 0
@@ -2593,9 +2594,10 @@ GameObject:
   - component: {fileID: 1280035394}
   - component: {fileID: 1280035397}
   - component: {fileID: 1280035398}
-  - component: {fileID: 1280035393}
+  - component: {fileID: 1280035401}
   - component: {fileID: 1280035399}
   - component: {fileID: 1280035400}
+  - component: {fileID: 1280035402}
   m_Layer: 0
   m_Name: Player_mower
   m_TagString: Player1
@@ -2603,87 +2605,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1280035393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1280035392}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08aa44c3a3a74624abaf24bda77d4795, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 1280035394}
-  maxSpeed: 6
-  logMovement: 0
-  playerControls:
-    m_Name: Player Controls
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 232d6c8d-3c9f-4739-9228-a915750d0c1c
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 2D Vector
-      m_Id: b36af922-0eba-4623-ad6a-427e39c79b21
-      m_Path: 2DVector
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Player Controls
-      m_Flags: 4
-    - m_Name: up
-      m_Id: 1820d0d6-b895-46d7-af44-28eca1507cc8
-      m_Path: <Keyboard>/upArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Player Controls
-      m_Flags: 8
-    - m_Name: down
-      m_Id: 9312591c-88ae-4abb-b4ff-ae00c0128f13
-      m_Path: <Keyboard>/downArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Player Controls
-      m_Flags: 8
-    - m_Name: left
-      m_Id: 64efdd8c-5a6a-4d1e-ac84-b3ca38d76082
-      m_Path: <Keyboard>/leftArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Player Controls
-      m_Flags: 8
-    - m_Name: right
-      m_Id: ea293ff9-f197-40b9-8e0a-05622fb0df97
-      m_Path: <Keyboard>/rightArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Player Controls
-      m_Flags: 8
-    m_Flags: 0
-  animator: {fileID: 1280035399}
-  tileManager: {fileID: 798685488}
-  plant: 0
-  speedPower: 0
-  speedPowerTime: 6
-  currentSpeedTimer: 0
-  invertPower: 0
-  invertPowerTime: 6
-  currentInvertTimer: 6
-  rangePower: 0
-  defaultRange: 0.7
-  currentRange: 0.7
-  rangePowerTime: 4
-  currentRangeTimer: 4
-  stunPower: 0
-  stunPowerTime: 6
-  currentStunTimer: 6
 --- !u!50 &1280035394
 Rigidbody2D:
   serializedVersion: 4
@@ -2985,6 +2906,102 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1280035401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280035392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7072d70c2e532ed47bb9711e3ffbf991, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 1280035394}
+  maxSpeed: 6
+  directionFacing: {x: 0, y: 1}
+  logMovement: 0
+  playerControls:
+    m_Name: Player Controls
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 8367f8ad-05a5-43f4-ba1a-4775ff804b49
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 2D Vector
+      m_Id: 38bc485d-c285-441c-ba70-91d1d71390a5
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Controls
+      m_Flags: 4
+    - m_Name: up
+      m_Id: 09d8a52e-611a-45aa-a4f5-036cae510aa8
+      m_Path: <Keyboard>/upArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Controls
+      m_Flags: 8
+    - m_Name: down
+      m_Id: 83917fc3-7294-4e42-ac18-4750dc53d38f
+      m_Path: <Keyboard>/downArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Controls
+      m_Flags: 8
+    - m_Name: left
+      m_Id: 80472074-a7ca-4088-9671-585a3bd728d4
+      m_Path: <Keyboard>/leftArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Controls
+      m_Flags: 8
+    - m_Name: right
+      m_Id: 9ea80477-3154-4cc5-882d-fc86d5ee514a
+      m_Path: <Keyboard>/rightArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Controls
+      m_Flags: 8
+    m_Flags: 0
+  animator: {fileID: 1280035399}
+  tileManager: {fileID: 798685488}
+  plant: 0
+  speedPower: 0
+  speedPowerTime: 6
+  currentSpeedTimer: 6
+  invertPower: 0
+  invertPowerTime: 6
+  currentInvertTimer: 6
+  rangePower: 0
+  defaultRange: 0.7
+  currentRange: 0.7
+  rangePowerTime: 4
+  currentRangeTimer: 4
+  stunPower: 0
+  stunPowerTime: 6
+  currentStunTimer: 6
+--- !u!114 &1280035402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280035392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b07569c95203ca4aa6199319b405efb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flameThrowerPrefab: {fileID: 8981540821465086582, guid: 35f0e508734ecbe40ae60dfab9a0a28e, type: 3}
+  tileManager: {fileID: 798685488}
 --- !u!1 &1358440298
 GameObject:
   m_ObjectHideFlags: 0

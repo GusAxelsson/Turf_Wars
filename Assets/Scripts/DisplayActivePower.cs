@@ -39,34 +39,34 @@ public class DisplayActivePower : MonoBehaviour
     {
 
         // player 1 Lawn mower booster info
-        if (player2.GetComponent<playerMovement>().speedPower == true){
+        if (player2.GetComponent<MovementController>().speedPower == true){
             plantSpeedBoosterInfo.SetActive(true);
         } else {
              plantSpeedBoosterInfo.SetActive(false);
         }
-        if (player1.GetComponent<playerMovement>().invertPower == true){
+        if (player1.GetComponent<MovementController>().invertPower == true){
             lawnInvertInfo.SetActive(true);
         } else {
             lawnInvertInfo.SetActive(false);
         }
-        if (player1.GetComponent<playerMovement>().stunPower == true){
+        if (player1.GetComponent<MovementController>().stunPower == true){
             lawnStunInfo.SetActive(true);
         } else {
             lawnStunInfo.SetActive(false);
         }
 
         // player 2 Plant booster info
-        if (player1.GetComponent<playerMovement>().speedPower == true){
+        if (player1.GetComponent<MovementController>().speedPower == true){
             lawnSpeedBoosterInfo.SetActive(true);
         } else {
              lawnSpeedBoosterInfo.SetActive(false);
         }
-        if (player2.GetComponent<playerMovement>().invertPower == true){
+        if (player2.GetComponent<MovementController>().invertPower == true){
             plantInvertInfo.SetActive(true);
         } else {
             plantInvertInfo.SetActive(false);
         }
-        if (player2.GetComponent<playerMovement>().stunPower == true){
+        if (player2.GetComponent<MovementController>().stunPower == true){
             plantStunInfo.SetActive(true);
         } else {
             plantStunInfo.SetActive(false);
