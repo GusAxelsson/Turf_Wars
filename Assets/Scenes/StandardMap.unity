@@ -2382,7 +2382,7 @@ MonoBehaviour:
   - {fileID: 3277363642845570955, guid: 05cec73ca1baa6f44b3cd1c8e6810e7f, type: 3}
   debugSpawnArea: 0
   totalPowerups: 0
-  maxAllowedPowerups: 8
+  maxAllowedPowerups: 6
 --- !u!4 &1530636567
 Transform:
   m_ObjectHideFlags: 0

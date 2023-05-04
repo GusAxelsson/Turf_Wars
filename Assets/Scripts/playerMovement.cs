@@ -17,18 +17,25 @@ public class playerMovement : MonoBehaviour
     public bool plant;
 
     // Powerup variables and timers 
-    // speedPowerup
+    // speedPowerup 1
     public bool speedPower;
     public float speedPowerTime = 6.0f;
     public float currentSpeedTimer = 6.0f;
-    // Invert Powerup
+    // Invert Powerup 2 
     public bool invertPower;
     public float invertPowerTime = 6.0f;
     public float currentInvertTimer = 6.0f;
-    // Stun Powerup(debuff)
+    // Range Powerup 4
+    public bool rangePower;
+    public float defaultRange = 0.7f;
+    public float currentRange = 0.7f;
+    public float rangePowerTime = 4.0f;
+    public float currentRangeTimer = 4.0f;
+    // Stun Powerup(debuff) 3
     public bool stunPower;
-    public float stunPowerTime = 6.0f;
-    public float currentStunTimer = 6.0f;
+    public float stunPowerTime = 1.0f;
+    public float currentStunTimer = 1.0f;
+    
 
 
     // This section is recommended by documentation //
@@ -107,10 +114,10 @@ public class playerMovement : MonoBehaviour
         {
             if (plant)
             {
-                tileManager.Plant(rb.position);
+                tileManager.Plant(rb.position, currentRange);
             } else
             {
-                tileManager.Mow(rb.position);
+                tileManager.Mow(rb.position, currentRange);
             }
         }
 
@@ -155,6 +162,19 @@ public class playerMovement : MonoBehaviour
             stunPower = false;
         }
 
+        // RangePower //
+        if (rangePower)
+        {
+            currentRangeTimer -= Time.deltaTime;
+            currentRange = 1.4f;
+        }
+        // if current speedtimer is zero or smaller. set speedpower false and revert speed to normal
+        if (currentRangeTimer <= 0)
+        {
+            rangePower = false;
+            currentRange = defaultRange;
+        }
+
 
         // Finally apply movement
         rb.MovePosition(rb.position + momentum * Time.fixedDeltaTime);
@@ -178,6 +198,11 @@ public class playerMovement : MonoBehaviour
         {
             stunPower = true;
             currentStunTimer = stunPowerTime;
+        }
+        if (powerUp == 4)
+        {
+            rangePower = true;
+            currentRangeTimer = rangePowerTime;
         }
     }
 
