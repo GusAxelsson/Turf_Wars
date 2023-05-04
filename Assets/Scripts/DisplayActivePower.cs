@@ -23,6 +23,7 @@ public class DisplayActivePower : MonoBehaviour
     {
         player1 = GameObject.FindGameObjectWithTag("Player1");
         player2 = GameObject.FindGameObjectWithTag("Player2");
+
         plantSpeedBoosterInfo = GameObject.Find("PlantSpeedBoosterInfo");
         plantInvertInfo = GameObject.Find("PlantInvertInfo");
         plantStunInfo = GameObject.Find("PlantStunInfo");
@@ -36,6 +37,7 @@ public class DisplayActivePower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         // player 1 booster info
         if (player1.GetComponent<playerMovement>().speedPower == true){
             plantSpeedBoosterInfo.SetActive(true);
