@@ -6,6 +6,7 @@ public class invertPowerUp : MonoBehaviour
 {
     private bool triggered = false;
     private void OnTriggerEnter2D(Collider2D collision)
+    
     {
         if (triggered == false){
             triggered = true;

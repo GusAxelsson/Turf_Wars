@@ -5,6 +5,9 @@ public class TileManager : MonoBehaviour
 {
     // public vars
     public GameObject grassPrefab;
+    public AudioSource audioSourcePlant;
+    public AudioSource audioSourceCut;
+
     public float xStart = -9.0F;
     public float yStart = 3.0F;
     public float tileSize = 0.5F;
@@ -149,12 +152,14 @@ public class TileManager : MonoBehaviour
                 {
                     // Create a new grass tile if the player is a planter.
                     GameObject grass = instantiateGrass(x, y);
+                    audioSourcePlant.Play();
                     grid[x, y] = grass;
                     totalGrassTiles++;
                 } else
                 {
                     // Remove a pre-existing grass tile if the player is a mower.
                     Destroy(grid[x, y]);
+                    audioSourceCut.Play();
                     grid[x, y] = null;
                     totalGrassTiles--;
                 }

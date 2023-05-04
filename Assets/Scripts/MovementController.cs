@@ -21,10 +21,12 @@ public class MovementController : MonoBehaviour
     public bool speedPower;
     public float speedPowerTime = 6.0f;
     public float currentSpeedTimer = 6.0f;
+    public AudioSource speedBoostSound;
     // Invert Powerup 2 
     public bool invertPower;
     public float invertPowerTime = 6.0f;
     public float currentInvertTimer = 6.0f;
+    public AudioSource invertSound;
     // Range Powerup 4
     public bool rangePower;
     public float defaultRange = 0.7f;
@@ -35,6 +37,7 @@ public class MovementController : MonoBehaviour
     public bool stunPower;
     public float stunPowerTime = 6.0f;
     public float currentStunTimer = 6.0f;
+    public AudioSource stunSound;
 
 
 
@@ -189,17 +192,20 @@ public class MovementController : MonoBehaviour
     {
         if (powerUp == 1)
         {
+            speedBoostSound.Play();
             speedPower = true;
             currentSpeedTimer = speedPowerTime;
             maxSpeed = 12;
         }
         if (powerUp == 2)
         {
+            invertSound.Play();
             invertPower = true;
             currentInvertTimer = invertPowerTime;
         }
         if (powerUp == 3)
         {
+            stunSound.Play();
             stunPower = true;
             currentStunTimer = stunPowerTime;
         }
