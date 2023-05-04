@@ -38,7 +38,7 @@ public class DisplayActivePower : MonoBehaviour
     void Update()
     {
 
-        // player 1 booster info
+        // player 1 Lawn mower booster info
         if (player1.GetComponent<playerMovement>().speedPower == true){
             plantSpeedBoosterInfo.SetActive(true);
         } else {
@@ -55,7 +55,7 @@ public class DisplayActivePower : MonoBehaviour
              plantStunInfo.SetActive(false);
         }
 
-        // player 2 booster info
+        // player 2 Plant booster info
         if (player2.GetComponent<playerMovement>().speedPower == true){
             lawnSpeedBoosterInfo.SetActive(true);
         } else {
