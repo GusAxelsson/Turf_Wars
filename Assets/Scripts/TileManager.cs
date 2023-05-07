@@ -11,14 +11,25 @@ public class TileManager : MonoBehaviour
     public float xStart = -9.0F;
     public float yStart = 3.0F;
     public float tileSize = 0.5F;
-    public int gridWidth = 36;
-    public int gridHeight = 16;
+    public int gridWidth = 56;
+    public int gridHeight = 20;
     public float positioningOffset = 0.1F;
     // private vars
     private GameObject[,] grid;
     private float grassSpriteH = 0.0F;
     private float grassSpriteW = 0.0F;
     private int totalGrassTiles;
+
+    public string mapLayout = "0000000000000000000000000000" +
+                              "0000111000000000000001110000" +
+                              "0000111000000000000001110000" +
+                              "0000111000001111000001110000" +
+                              "0000000000001111000000000000" +
+                              "0000000000001111000000000000" +
+                              "0000111000001111000001110000" +
+                              "0000111000000000000001110000" +
+                              "0000111000000000000001110000" +
+                              "0000000000000000000000000000";
 
     void Start()
     {
@@ -71,6 +82,21 @@ public class TileManager : MonoBehaviour
         return Instantiate(grassPrefab, new Vector3(xStart + grassSpriteW +(x * tileSize) + xOffset, yStart + grassSpriteH - (y * tileSize) + yOffset, 0), Quaternion.identity);
     }
 
+    public bool TileIsAccessible(int x,int y)
+    {
+        if (mapLayout[(x + (y * 28))] == '0')
+        {
+            Debug.Log("True");
+            return true;
+        }
+        else
+        {
+            Debug.Log("false");
+            Debug.Log(mapLayout[x + (y * 28)]);
+            return false;
+        }
+    }
+
     /// <summary>
     /// Initializes the grid with grass tiles.
     /// </summary>
@@ -82,7 +108,7 @@ public class TileManager : MonoBehaviour
             float floatingProbability = ((float) (gridWidth - x) / gridWidth);
             for (int y = 0; y < gridHeight; y++)
             {
-                if (Random.Range(0F, 1F) < floatingProbability)
+                if ((Random.Range(0F, 1F) < floatingProbability) & TileIsAccessible(Mathf.FloorToInt(x / 2), Mathf.FloorToInt(y / 2)))
                 {
                     GameObject grass = instantiateGrass(x, y);
                     grid[x, y] = grass;
@@ -132,7 +158,7 @@ public class TileManager : MonoBehaviour
             for (int y = minY; y <= maxY; y++)
             {
                 // GUARD: We do not change anything if the tile is already in its desired state.
-                if ((!plant && grid[x, y] == null) || (plant && grid[x, y] != null))
+                if ((!plant && grid[x, y] == null) || (plant && grid[x, y] != null) || !(TileIsAccessible(Mathf.FloorToInt(x / 2), Mathf.FloorToInt(y / 2))))
                 {
                     continue;
                 }

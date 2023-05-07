@@ -11,7 +11,7 @@ public class RangePowerup : MonoBehaviour
         if (triggered == false)
         {
             triggered = true;
-            collision.GetComponent<playerMovement>().powerUpCollected(4);
+            collision.GetComponent<MovementController>().powerUpCollected(4);
             GameObject.Find("PowerupSpawner").GetComponent<PowerupSpawned>().totalPowerups -= 1;
             Destroy(gameObject);
         }
