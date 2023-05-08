@@ -5,14 +5,15 @@ using UnityEngine;
 public class PowerupSpawned : MonoBehaviour
 {
     public GameObject[] powerList;
+    public GameObject tileHandler;
 
     public bool debugSpawnArea = false;
 
     // map bouderies
-    private float xStart = -9.0f;
+    private float xStart = -14.0f;
     private float yStart = 3.0f;
-    private int powerGridW = 18;
-    private int powerGridH = 8;
+    private int powerGridW = 28;
+    private int powerGridH = 10;
     private GameObject[,] powerGrid;
 
 
@@ -29,7 +30,7 @@ public class PowerupSpawned : MonoBehaviour
         int powerIndex = Random.Range(0, powerList.Length);
         int xIndex = Random.Range(0, powerGridW);
         int yIndex = Random.Range(0, powerGridH);
-        if (powerGrid[xIndex, yIndex] != null)
+        if (powerGrid[xIndex, yIndex] != null || !(tileHandler.GetComponent<TileManager>().TileIsAccessible(xIndex,yIndex)))
         {
             PowerToSpawn();
         }

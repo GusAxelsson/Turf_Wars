@@ -8,8 +8,8 @@ public class TileManager : MonoBehaviour
     public AudioSource audioSourcePlant;
     public AudioSource audioSourceCut;
 
-    public float xStart = -9.0F;
-    public float yStart = 3.0F;
+    public float xStart = -14.0F;
+    public float yStart = 2.5F;
     public float tileSize = 0.5F;
     public int gridWidth = 56;
     public int gridHeight = 20;

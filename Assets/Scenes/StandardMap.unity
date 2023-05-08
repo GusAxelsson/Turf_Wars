@@ -4748,6 +4748,7 @@ MonoBehaviour:
   - {fileID: 4115589561685535482, guid: 1bc5d39f360cd86418a9ef631fbe86ed, type: 3}
   - {fileID: 3277363642845570955, guid: 05cec73ca1baa6f44b3cd1c8e6810e7f, type: 3}
   - {fileID: 6791786457356570798, guid: dfbfbf4b0856a1a41b5f1c024fdcb8bd, type: 3}
+  tileHandler: {fileID: 798685485}
   debugSpawnArea: 0
   totalPowerups: 0
   maxAllowedPowerups: 6
