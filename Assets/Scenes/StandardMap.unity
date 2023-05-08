@@ -937,8 +937,8 @@ MonoBehaviour:
   tileManager: {fileID: 798685488}
   plant: 1
   speedPower: 0
-  speedPowerTime: 6
-  currentSpeedTimer: 6
+  speedPowerTime: 3
+  currentSpeedTimer: 3
   speedBoostSound: {fileID: 183733015}
   invertPower: 0
   invertPowerTime: 6
@@ -950,8 +950,8 @@ MonoBehaviour:
   rangePowerTime: 4
   currentRangeTimer: 4
   stunPower: 0
-  stunPowerTime: 6
-  currentStunTimer: 6
+  stunPowerTime: 2
+  currentStunTimer: 2
   stunSound: {fileID: 183733016}
 --- !u!82 &183733015
 AudioSource:
@@ -4185,8 +4185,8 @@ MonoBehaviour:
   tileManager: {fileID: 798685488}
   plant: 0
   speedPower: 0
-  speedPowerTime: 6
-  currentSpeedTimer: 6
+  speedPowerTime: 3
+  currentSpeedTimer: 3
   speedBoostSound: {fileID: 1280035403}
   invertPower: 0
   invertPowerTime: 6
@@ -4198,8 +4198,8 @@ MonoBehaviour:
   rangePowerTime: 4
   currentRangeTimer: 4
   stunPower: 0
-  stunPowerTime: 6
-  currentStunTimer: 6
+  stunPowerTime: 2
+  currentStunTimer: 2
   stunSound: {fileID: 1280035404}
 --- !u!114 &1280035402
 MonoBehaviour:
