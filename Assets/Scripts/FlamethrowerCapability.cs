@@ -18,7 +18,7 @@ public class FlamethrowerCapability : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+        if (Input.GetKeyDown(KeyCode.RightControl))
         {
             Debug.Log(movementController.GetDirection());
             Vector2 direction = movementController.GetDirection();

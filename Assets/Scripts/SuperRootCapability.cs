@@ -18,7 +18,7 @@ public class SuperRootCapability : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.RightControl))
+        if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             Vector3 spawnPosition = this.transform.position;
             spawnPosition.y -= 0.1F;
