@@ -23,6 +23,11 @@ public class SuperRootCapability : MonoBehaviour
             Vector3 spawnPosition = this.transform.position;
             spawnPosition.y -= 0.1F;
             GameObject animation = Instantiate(superRootPrefab, spawnPosition, Quaternion.identity);
+
+            // Plant grass in the area of the roots
+            Vector2 pos = new Vector2(spawnPosition.x, spawnPosition.y);
+            this.tileManager.Plant(pos, 2.5f);
+
         }
     }
 }
