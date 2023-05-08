@@ -655,6 +655,7 @@ GameObject:
   - component: {fileID: 183733015}
   - component: {fileID: 183733017}
   - component: {fileID: 183733016}
+  - component: {fileID: 183733018}
   m_Layer: 0
   m_Name: Player_Plant
   m_TagString: Player2
@@ -1240,6 +1241,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &183733018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183733006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 437f6b5ef59edc147940d0079a9af25b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  superRootPrefab: {fileID: 9013685764425258692, guid: c1064fa5d205bd14b8911c8af161f692, type: 3}
+  tileManager: {fileID: 798685488}
 --- !u!1 &252950027
 GameObject:
   m_ObjectHideFlags: 0
@@ -1842,7 +1857,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &798685488
 MonoBehaviour:
@@ -2070,7 +2085,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac37b1177d97b1647937ebfae54fa251, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapLayout: 
 --- !u!1 &867435770
 GameObject:
   m_ObjectHideFlags: 0
@@ -5138,7 +5152,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1652439059402653047, guid: 1be3dd02e3a63f34d962b81e80cca4ce, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1652439059402653047, guid: 1be3dd02e3a63f34d962b81e80cca4ce, type: 3}
       propertyPath: m_LocalPosition.x
