@@ -30,7 +30,7 @@ public class PowerupSpawned : MonoBehaviour
         int powerIndex = Random.Range(0, powerList.Length);
         int xIndex = Random.Range(0, powerGridW);
         int yIndex = Random.Range(0, powerGridH);
-        if (powerGrid[xIndex, yIndex] != null || !(tileHandler.GetComponent<TileManager>().TileIsAccessible(xIndex,yIndex)))
+        if (powerGrid[xIndex, yIndex] != null || !(tileHandler.GetComponent<TileManager>().TileIsAccessible(xIndex,yIndex)))   /// We should also Check if there is a player in the position.
         {
             PowerToSpawn();
         }
