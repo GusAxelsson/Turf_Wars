@@ -1255,6 +1255,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   superRootPrefab: {fileID: 9013685764425258692, guid: c1064fa5d205bd14b8911c8af161f692, type: 3}
   tileManager: {fileID: 798685488}
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &252950027
 GameObject:
   m_ObjectHideFlags: 0
@@ -3808,7 +3811,7 @@ GameObject:
   - component: {fileID: 1280035403}
   - component: {fileID: 1280035405}
   - component: {fileID: 1280035404}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player_mower
   m_TagString: Player1
   m_Icon: {fileID: 0}

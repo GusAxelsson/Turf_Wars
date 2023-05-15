@@ -10,6 +10,8 @@ public class SuperRootCapability : MonoBehaviour
     private MovementController movementController;
     private SpriteRenderer renderer;
 
+    public LayerMask enemyLayers;
+
     void Start()
     {
         this.movementController = this.gameObject.GetComponent<MovementController>();
@@ -21,13 +23,26 @@ public class SuperRootCapability : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             Vector3 spawnPosition = this.transform.position;
-            spawnPosition.y -= 0.1F;
             GameObject animation = Instantiate(superRootPrefab, spawnPosition, Quaternion.identity);
 
-            // Plant grass in the area of the roots
-            Vector2 pos = new Vector2(spawnPosition.x, spawnPosition.y);
-            this.tileManager.Plant(pos, 2.5f);
-
+            RootAttack(spawnPosition);
         }
     }
+
+    void RootAttack(Vector3 playerPosition){
+            
+        // Plant grass in the area of the roots
+        Vector2 rootArea = new Vector2(playerPosition.x, playerPosition.y);
+        this.tileManager.Plant(rootArea, 2.5f);
+
+        // Attack/Stun
+        Collider2D[] mowers = Physics2D.OverlapCircleAll(playerPosition, 2f, enemyLayers);
+
+        foreach (Collider2D mower in mowers)
+        {
+            mower.GetComponent<MovementController>().powerUpCollected(3);
+        }
+    }
+
+   
 }
