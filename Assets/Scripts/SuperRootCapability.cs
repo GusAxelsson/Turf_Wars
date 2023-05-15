@@ -10,6 +10,8 @@ public class SuperRootCapability : MonoBehaviour
     private MovementController movementController;
     private SpriteRenderer renderer;
 
+    private float cooldown;
+
     public LayerMask enemyLayers;
 
     void Start()
@@ -20,12 +22,16 @@ public class SuperRootCapability : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+        cooldown -= Time.deltaTime;
+
+        if (Input.GetKeyDown(KeyCode.LeftControl) && cooldown <= 0)
         {
             Vector3 spawnPosition = this.transform.position;
             GameObject animation = Instantiate(superRootPrefab, spawnPosition, Quaternion.identity);
 
             RootAttack(spawnPosition);
+
+            cooldown = 15;
         }
     }
 
