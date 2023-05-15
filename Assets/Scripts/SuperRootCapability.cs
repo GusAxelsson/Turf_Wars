@@ -12,7 +12,7 @@ public class SuperRootCapability : MonoBehaviour
 
     private float cooldown;
 
-    public LayerMask enemyLayers;
+    public LayerMask mowerLayer;
 
     void Start()
     {
@@ -42,7 +42,7 @@ public class SuperRootCapability : MonoBehaviour
         this.tileManager.Plant(rootArea, 2.5f);
 
         // Attack/Stun
-        Collider2D[] mowers = Physics2D.OverlapCircleAll(playerPosition, 2f, enemyLayers);
+        Collider2D[] mowers = Physics2D.OverlapCircleAll(playerPosition, 2f, mowerLayer);
 
         foreach (Collider2D mower in mowers)
         {
