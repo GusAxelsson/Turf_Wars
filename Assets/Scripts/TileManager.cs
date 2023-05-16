@@ -86,13 +86,10 @@ public class TileManager : MonoBehaviour
     {
         if (mapLayout[(x + (y * 28))] == '0')
         {
-            Debug.Log("True");
             return true;
         }
         else
         {
-            Debug.Log("false");
-            Debug.Log(mapLayout[x + (y * 28)]);
             return false;
         }
     }
