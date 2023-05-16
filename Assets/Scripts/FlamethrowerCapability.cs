@@ -10,6 +10,11 @@ public class FlamethrowerCapability : MonoBehaviour
     private MovementController movementController;
     private SpriteRenderer renderer;
 
+    private float cooldown;
+    private Vector3 stunArea;
+
+    public LayerMask planterLayer;
+
     void Start()
     {
         this.movementController = this.gameObject.GetComponent<MovementController>();
@@ -18,6 +23,9 @@ public class FlamethrowerCapability : MonoBehaviour
 
     void Update()
     {
+
+        cooldown -= Time.deltaTime;
+
         if (Input.GetKeyDown(KeyCode.RightControl))
         {
             Debug.Log(movementController.GetDirection());
@@ -33,37 +41,38 @@ public class FlamethrowerCapability : MonoBehaviour
             {
                 case 0:
                     spawnPosition.y -= this.renderer.bounds.size.y / 2;
+                    stunArea = spawnPosition - new Vector3(0, 2f, 0);
+                    this.tileManager.Mow(stunArea, 2f);
                     break;
                 case 1:
                     spawnPosition.x += this.renderer.bounds.size.x / 2;
+                    stunArea = spawnPosition + new Vector3(2f, 0, 0);
+                    this.tileManager.Mow(stunArea, 2f);
                     break;
                 case 2:
                     spawnPosition.y += this.renderer.bounds.size.y / 2;
+                    stunArea = spawnPosition + new Vector3(0, 2f, 0);
+                    this.tileManager.Mow(stunArea, 2f);
                     break;
                 case 3:
                     spawnPosition.x -= this.renderer.bounds.size.x / 2;
+                    stunArea = spawnPosition - new Vector3(2f, 0, 0);
+                    this.tileManager.Mow(stunArea, 2f);
                     break;
             }
 
-            /* TODO
-            Vector2 bounds = this.renderer.bounds.size;
-            for (int i = 0; i < 2; i++)
-            {
-                for (int j = 0; j < 3; j++)
-                {
-                    Vector2 pos = new Vector2(spawnPosition.x + i * bounds.x + bounds.x / 2, spawnPosition.y + bounds.y - j * bounds.y + bounds.y / 2);
-
-                    this.tileManager.Mow(pos);
-                }
-            }*/
-
             Quaternion spawnRotation = Quaternion.Euler(0, 0, angle); 
             GameObject animation = Instantiate(flameThrowerPrefab, spawnPosition, spawnRotation);
+
+            
+            // Attack/Stun
+            Collider2D[] planters = Physics2D.OverlapCircleAll(stunArea, 2.5f, planterLayer);
+            foreach (Collider2D planter in planters)
+            {
+                planter.GetComponent<MovementController>().powerUpCollected(3);
+            }
+
+            cooldown = 15;
         }
-    }
-
-    private void ModifySpawnPosition(Vector3 spawnPosition, float rotation)
-    {
-
     }
 }
