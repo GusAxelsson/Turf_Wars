@@ -12,10 +12,14 @@ public class DisplayActivePower : MonoBehaviour
     public GameObject plantSpeedBoosterInfo;
     public GameObject plantInvertInfo;
     public GameObject plantStunInfo;
+    public GameObject plantAbilityInfo;
 
     public GameObject lawnSpeedBoosterInfo;
     public GameObject lawnInvertInfo;
     public GameObject lawnStunInfo;
+    public GameObject lawnAbilityInfo;
+
+    private float cooldown;
 
 
     // Start is called before the first frame update
@@ -27,10 +31,12 @@ public class DisplayActivePower : MonoBehaviour
         plantSpeedBoosterInfo = GameObject.Find("PlantSpeedBoosterInfo");
         plantInvertInfo = GameObject.Find("PlantInvertInfo");
         plantStunInfo = GameObject.Find("PlantStunInfo");
+        plantAbilityInfo = GameObject.Find("PlantAbilityInfo");
 
         lawnSpeedBoosterInfo = GameObject.Find("LawnSpeedBoosterInfo");
         lawnInvertInfo = GameObject.Find("LawnInvertInfo");
         lawnStunInfo = GameObject.Find("LawnStunInfo");
+        lawnAbilityInfo = GameObject.Find("LawnAbilityInfo");
 
     }
 
@@ -54,6 +60,11 @@ public class DisplayActivePower : MonoBehaviour
         } else {
             lawnStunInfo.SetActive(false);
         }
+        if (player1.GetComponent<MovementController>().rangePower == true){
+            lawnAbilityInfo.SetActive(true);
+        } else {
+            lawnAbilityInfo.SetActive(false);
+        }
 
         // player 2 Plant booster info
         if (player1.GetComponent<MovementController>().speedPower == true){
@@ -70,6 +81,11 @@ public class DisplayActivePower : MonoBehaviour
             plantStunInfo.SetActive(true);
         } else {
             plantStunInfo.SetActive(false);
+        }
+        if (player2.GetComponent<MovementController>().rangePower == true ){
+            plantAbilityInfo.SetActive(true);
+        } else {
+            plantAbilityInfo.SetActive(false);
         }
 
     }
