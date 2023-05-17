@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Player1
   - Player2
+  - meteor
   layers:
   - Default
   - TransparentFX
