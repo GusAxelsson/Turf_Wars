@@ -7,7 +7,7 @@ public class StartScreenController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            SceneManager.LoadScene("MapSelection");
+            SceneManager.LoadScene("GameStart");
         }
     }
 }

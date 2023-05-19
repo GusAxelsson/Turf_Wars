@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Timer : MonoBehaviour
     public TextMeshProUGUI timeText;
 
     public GameOver gameOverScreen;
+    public PointSystem pointsystem;
 
     // Update is called once per frame
     void Update()
@@ -19,7 +21,12 @@ public class Timer : MonoBehaviour
         }  
         else{
             timer = 0;
-            gameOverScreen.GameIsOver();
+            if (pointsystem.pointsMowers > pointsystem.pointsPlanters) {
+                SceneManager.LoadScene("GameOver_MowerWin");
+            }
+            else {
+                SceneManager.LoadScene("GameOver_PlanterWin");
+            }
         }
 
         DisplayCountdown(timer);

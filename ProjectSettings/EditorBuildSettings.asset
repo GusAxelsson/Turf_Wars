@@ -9,9 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/StartScreen.unity
     guid: bb9129403657a46228c9bbeef0fdc5ae
   - enabled: 1
-    path: Assets/Scenes/MapSelection.unity
-    guid: e0d0ca69266504fd49f20539e9747714
+    path: Assets/Scenes/GameStart.unity
+    guid: 4c64acc1784049a45a1b2132d1a30766
   - enabled: 1
     path: Assets/Scenes/StandardMap.unity
     guid: 2e18328139b20bf4cbc0c1da79ecd37c
+  - enabled: 1
+    path: Assets/Scenes/GameOver_MowerWin.unity
+    guid: 36c2c0f25fead174fb7e3289d4db58f2
+  - enabled: 1
+    path: Assets/Scenes/GameOver_PlanterWin.unity
+    guid: 90ada244acf81b94cae848addc274283
   m_configObjects: {}
