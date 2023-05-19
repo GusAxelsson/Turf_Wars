@@ -4993,7 +4993,7 @@ MonoBehaviour:
   tileHandler: {fileID: 798685485}
   debugSpawnArea: 0
   totalPowerups: 0
-  maxAllowedPowerups: 6
+  maxAllowedPowerups: 4
 --- !u!4 &1530636567
 Transform:
   m_ObjectHideFlags: 0

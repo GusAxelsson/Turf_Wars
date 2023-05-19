@@ -98,7 +98,7 @@ public class PowerupSpawned : MonoBehaviour
         {
             // keep track of powerups on the map
             lastPowerUpTime = Time.time;
-            timeUntilPowerup = Random.Range(1.0f, 6.0f);
+            timeUntilPowerup = Random.Range(3.0f, 8.0f);
             totalPowerups += 1;
 
             // spawn powerup
