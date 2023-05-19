@@ -10,6 +10,7 @@ public class PointSystem : MonoBehaviour
     public TextMeshProUGUI pointsMowersText;
     public int pointsPlanters = 0;
     public int pointsMowers = 0;
+    private float startTime;
     private float timer;
     private int pointTimer = 5;
     private int areaPoints = 1000;
@@ -18,6 +19,7 @@ public class PointSystem : MonoBehaviour
     void Start()
     {
         pointsPlantersText.text = pointsPlanters.ToString();
+        startTime = Time.time;
     }
 
     void Update()
@@ -37,14 +39,21 @@ public class PointSystem : MonoBehaviour
         }
     }
 
+    // points scale from 1000 per tic in at the start of the game to 10000 at the end of the game
+    private int calcPoints()
+    {
+        float gameTime = Time.time - startTime;
+        return areaPoints * Mathf.FloorToInt((1 + ((gameTime / 180) * 9)));
+    }
+
     // Adds points to the team covering over 50% of the area
     void AreaPoints(){
-        if(grassPercentage > 50){
-            pointsPlanters += areaPoints;
+        if(grassPercentage > 60){
+            pointsPlanters += calcPoints();
             pointsPlantersText.text = pointsPlanters.ToString();
         }
-        else if(grassPercentage < 50){
-            pointsMowers += areaPoints;
+        else if(grassPercentage < 40){
+            pointsMowers += calcPoints();
             pointsMowersText.text = pointsMowers.ToString();
         }
     }
