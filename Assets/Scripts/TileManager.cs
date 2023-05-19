@@ -19,6 +19,7 @@ public class TileManager : MonoBehaviour
     private float grassSpriteH = 0.0F;
     private float grassSpriteW = 0.0F;
     private int totalGrassTiles;
+    private int availibleTiles;
 
     public string mapLayout = "0000000000000000000000000000" +
                               "0000111000000000000001110000" +
@@ -43,6 +44,7 @@ public class TileManager : MonoBehaviour
         
         grid = new GameObject[gridWidth, gridHeight];
         totalGrassTiles = 0;
+        CountAvailibleTiles();
         InitializeGrid();
     }
 
@@ -54,6 +56,23 @@ public class TileManager : MonoBehaviour
     public void DebugGridPos(Vector2 currentPos)
     {
         Debug.Log(WorldToGrid(currentPos.x,currentPos.y));
+    }
+
+    private void CountAvailibleTiles()
+    {
+        int counter = 0;
+        for (int x = 0; x < gridWidth; x++)
+        {
+            for (int y = 0; y < gridHeight; y++)
+            {
+                if (TileIsAccessible(Mathf.FloorToInt(x / 2), Mathf.FloorToInt(y / 2)))
+                {
+                    counter++;
+                }
+                    
+            } 
+        }
+        availibleTiles = counter;
     }
 
     /// <summary>
@@ -99,21 +118,53 @@ public class TileManager : MonoBehaviour
     /// </summary>
     private void InitializeGrid()
     {
+        if (totalGrassTiles < ((gridHeight * gridWidth) / 2))
+        {
+            for (int x = 0; x < gridWidth; x++)
+            {
+                // Currently, what we're doing is that the left side of the screen has a higher probability to start out with grass.
+                float floatingProbability = ((float)(gridWidth - x) / gridWidth);
+                for (int y = 0; y < gridHeight; y++)
+                {
+                    // if we have populated half of the area with grass we are done: return
+                    if (totalGrassTiles >= (availibleTiles / 2))
+                    {
+                        return;
+                    }
+                    if ((Random.Range(0F, 1F) <= floatingProbability) & TileIsAccessible(Mathf.FloorToInt(x / 2), Mathf.FloorToInt(y / 2)))
+                    {
+                        GameObject grass = instantiateGrass(x, y);
+                        grid[x, y] = grass;
+                        totalGrassTiles++;
+                    }
+                    else
+                    {
+                        grid[x, y] = null;
+                    }
+                }
+            }
+            // if we didnt fill half of the map with grass go again
+            if(totalGrassTiles < (availibleTiles / 2))
+            {
+                InitializeGrid();
+            }
+        }
+    }
+
+    /// <summary>
+    ///  Debug function
+    /// </summary>
+    private void FillGrass()
+    {
         for (int x = 0; x < gridWidth; x++)
         {
-            // Currently, what we're doing is that the left side of the screen has a higher probability to start out with grass.
-            float floatingProbability = ((float) (gridWidth - x) / gridWidth);
             for (int y = 0; y < gridHeight; y++)
             {
-                if ((Random.Range(0F, 1F) < floatingProbability) & TileIsAccessible(Mathf.FloorToInt(x / 2), Mathf.FloorToInt(y / 2)))
+                if (grid[x, y] == null)
                 {
                     GameObject grass = instantiateGrass(x, y);
                     grid[x, y] = grass;
                     totalGrassTiles++;
-                }
-                else
-                {
-                    grid[x, y] = null;
                 }
             }
         }
@@ -178,7 +229,8 @@ public class TileManager : MonoBehaviour
                     audioSourcePlant.Play();
                     grid[x, y] = grass;
                     totalGrassTiles++;
-                } else
+                }
+                else
                 {
                     // Remove a pre-existing grass tile if the player is a mower.
                     Destroy(grid[x, y]);
@@ -202,6 +254,6 @@ public class TileManager : MonoBehaviour
 
     public float GetGrassPercentage()
     {
-        return (float)totalGrassTiles / (gridWidth * gridHeight) * 100F;
+        return (float)totalGrassTiles / (availibleTiles) * 100F;
     }
 }
