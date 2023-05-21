@@ -26,7 +26,7 @@ public class FlamethrowerCapability : MonoBehaviour
 
         cooldown -= Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.RightControl))
+        if (Input.GetKeyDown(KeyCode.RightControl) && cooldown <= 0)
         {
             Debug.Log(movementController.GetDirection());
             Vector2 direction = movementController.GetDirection();
