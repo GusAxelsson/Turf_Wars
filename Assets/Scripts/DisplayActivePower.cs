@@ -12,11 +12,13 @@ public class DisplayActivePower : MonoBehaviour
     public GameObject plantSpeedBoosterInfo;
     public GameObject plantInvertInfo;
     public GameObject plantStunInfo;
+    public GameObject plantRangePowerInfo;
     public GameObject plantAbilityInfo;
 
     public GameObject lawnSpeedBoosterInfo;
     public GameObject lawnInvertInfo;
     public GameObject lawnStunInfo;
+    public GameObject lawnRangePowerInfo;
     public GameObject lawnAbilityInfo;
 
     private float cooldown;
@@ -31,11 +33,13 @@ public class DisplayActivePower : MonoBehaviour
         plantSpeedBoosterInfo = GameObject.Find("PlantSpeedBoosterInfo");
         plantInvertInfo = GameObject.Find("PlantInvertInfo");
         plantStunInfo = GameObject.Find("PlantStunInfo");
+        plantRangePowerInfo = GameObject.Find("PlantRangePowerInfo");
         plantAbilityInfo = GameObject.Find("PlantAbilityInfo");
 
         lawnSpeedBoosterInfo = GameObject.Find("LawnSpeedBoosterInfo");
         lawnInvertInfo = GameObject.Find("LawnInvertInfo");
         lawnStunInfo = GameObject.Find("LawnStunInfo");
+        lawnRangePowerInfo = GameObject.Find("LawnRangePowerInfo");
         lawnAbilityInfo = GameObject.Find("LawnAbilityInfo");
 
     }
@@ -61,9 +65,9 @@ public class DisplayActivePower : MonoBehaviour
             lawnStunInfo.SetActive(false);
         }
         if (player1.GetComponent<MovementController>().rangePower == true){
-            lawnAbilityInfo.SetActive(true);
+            lawnRangePowerInfo.SetActive(true);
         } else {
-            lawnAbilityInfo.SetActive(false);
+            lawnRangePowerInfo.SetActive(false);
         }
 
         // player 2 Plant booster info
@@ -83,9 +87,9 @@ public class DisplayActivePower : MonoBehaviour
             plantStunInfo.SetActive(false);
         }
         if (player2.GetComponent<MovementController>().rangePower == true ){
-            plantAbilityInfo.SetActive(true);
+            plantRangePowerInfo.SetActive(true);
         } else {
-            plantAbilityInfo.SetActive(false);
+            plantRangePowerInfo.SetActive(false);
         }
 
     }
