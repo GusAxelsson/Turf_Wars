@@ -14,6 +14,8 @@ public class SuperRootCapability : MonoBehaviour
 
     public LayerMask mowerLayer;
 
+    public bool rootCapability;
+
     void Start()
     {
         this.movementController = this.gameObject.GetComponent<MovementController>();
@@ -26,6 +28,7 @@ public class SuperRootCapability : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftControl) && cooldown <= 0)
         {
+            rootCapability = true;
             Vector3 spawnPosition = this.transform.position;
             GameObject animation = Instantiate(superRootPrefab, spawnPosition, Quaternion.identity);
 

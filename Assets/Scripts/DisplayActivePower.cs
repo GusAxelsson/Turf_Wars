@@ -69,6 +69,11 @@ public class DisplayActivePower : MonoBehaviour
         } else {
             lawnRangePowerInfo.SetActive(false);
         }
+        if (player1.GetComponent<FlamethrowerCapability>().flameCapability == true ){
+            lawnAbilityInfo.SetActive(true);
+        } else {
+            lawnAbilityInfo.SetActive(false);
+        }
 
         // player 2 Plant booster info
         if (player1.GetComponent<MovementController>().speedPower == true){
@@ -90,6 +95,11 @@ public class DisplayActivePower : MonoBehaviour
             plantRangePowerInfo.SetActive(true);
         } else {
             plantRangePowerInfo.SetActive(false);
+        }
+        if (player2.GetComponent<SuperRootCapability>().rootCapability == true ){
+            plantAbilityInfo.SetActive(true);
+        } else {
+            plantAbilityInfo.SetActive(false);
         }
 
     }

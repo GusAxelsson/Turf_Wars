@@ -1258,6 +1258,7 @@ MonoBehaviour:
   mowerLayer:
     serializedVersion: 2
     m_Bits: 64
+  rootCapability: 0
 --- !u!1 &252950027
 GameObject:
   m_ObjectHideFlags: 0
@@ -2261,7 +2262,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -92.9, y: 393.4}
+  m_AnchoredPosition: {x: -92.900024, y: 393.4}
   m_SizeDelta: {x: 102.83, y: 102.84}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &818250090
@@ -3256,7 +3257,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -1877.9, y: 387.6}
+  m_AnchoredPosition: {x: -1877.8999, y: 387.6}
   m_SizeDelta: {x: 101.41, y: 101.42}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1059273183
@@ -3569,18 +3570,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87774381a1963461496399147542c25f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1: {fileID: 0}
-  player2: {fileID: 0}
-  plantSpeedBoosterInfo: {fileID: 0}
-  plantInvertInfo: {fileID: 0}
-  plantStunInfo: {fileID: 0}
-  plantRangePowerInfo: {fileID: 0}
-  plantAbilityInfo: {fileID: 0}
-  lawnSpeedBoosterInfo: {fileID: 0}
-  lawnInvertInfo: {fileID: 0}
-  lawnStunInfo: {fileID: 0}
-  lawnRangePowerInfo: {fileID: 0}
-  lawnAbilityInfo: {fileID: 0}
+  player1: {fileID: 1280035392}
+  player2: {fileID: 183733006}
+  plantSpeedBoosterInfo: {fileID: 1059273180}
+  plantInvertInfo: {fileID: 1358440298}
+  plantStunInfo: {fileID: 621527593}
+  plantRangePowerInfo: {fileID: 1869898665}
+  plantAbilityInfo: {fileID: 492305956}
+  lawnSpeedBoosterInfo: {fileID: 1016134879}
+  lawnInvertInfo: {fileID: 1358440298}
+  lawnStunInfo: {fileID: 58642181}
+  lawnRangePowerInfo: {fileID: 818250088}
+  lawnAbilityInfo: {fileID: 492305956}
 --- !u!222 &1140357726
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4521,6 +4522,7 @@ MonoBehaviour:
   planterLayer:
     serializedVersion: 2
     m_Bits: 128
+  flameCapability: 0
 --- !u!82 &1280035403
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4826,6 +4828,7 @@ MonoBehaviour:
   planterLayer:
     serializedVersion: 2
     m_Bits: 0
+  flameCapability: 0
 --- !u!1 &1280476165
 GameObject:
   m_ObjectHideFlags: 0
