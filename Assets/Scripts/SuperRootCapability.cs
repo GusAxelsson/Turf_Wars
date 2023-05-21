@@ -26,9 +26,16 @@ public class SuperRootCapability : MonoBehaviour
     {
         cooldown -= Time.deltaTime;
 
+
+        if (cooldown <= 0){
+            rootCapability = true;
+        } else {
+            rootCapability = false;
+        }
+
         if (Input.GetKeyDown(KeyCode.LeftControl) && cooldown <= 0)
         {
-            rootCapability = true;
+            rootCapability = false;
             Vector3 spawnPosition = this.transform.position;
             GameObject animation = Instantiate(superRootPrefab, spawnPosition, Quaternion.identity);
 
