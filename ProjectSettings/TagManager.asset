@@ -7,6 +7,10 @@ TagManager:
   - Player1
   - Player2
   - meteor
+  - RangeAnim
+  - SpeedAnim
+  - SwapAnim
+  - StunAnim
   layers:
   - Default
   - TransparentFX

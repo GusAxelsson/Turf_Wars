@@ -6,6 +6,11 @@ using UnityEngine.UI;
 
 public class MovementController : MonoBehaviour
 {
+    public GameObject prefabRangeAnimation;
+    public GameObject prefabSwapAnimation;
+    public GameObject prefabSpeedAnimation;
+    public GameObject prefabStunAnimation;
+
     public Rigidbody2D rb;
     public float maxSpeed = 5f;
     Vector2 movementDirection;
@@ -142,6 +147,7 @@ public class MovementController : MonoBehaviour
         {
             speedPower = false;
             maxSpeed = 5;
+            removeAnimations("SpeedAnim");
             // test.SetActive(true);
         }
 
@@ -154,6 +160,7 @@ public class MovementController : MonoBehaviour
         if (currentInvertTimer <= 0)
         {
             invertPower = false;
+            removeAnimations("SwapAnim");
         }
 
         // StunPower//
@@ -167,6 +174,7 @@ public class MovementController : MonoBehaviour
         if (currentStunTimer <= 0)
         {
             stunPower = false;
+            removeAnimations("StunAnim");
         }
 
         // RangePower //
@@ -180,6 +188,7 @@ public class MovementController : MonoBehaviour
         {
             rangePower = false;
             currentRange = defaultRange;
+            removeAnimations("RangeAnim");
         }
 
 
@@ -187,6 +196,28 @@ public class MovementController : MonoBehaviour
         rb.MovePosition(rb.position + momentum * Time.fixedDeltaTime);
     }
 
+    private void removeAnimations(string tag)
+    {
+        foreach (Transform child in transform)
+        {
+            if (child.CompareTag(tag))
+            {
+                Destroy(child.gameObject);
+            }
+        }
+    }
+
+    private bool hasAnimation(string tag)
+    {
+        foreach (Transform child in transform)
+        {
+            if (child.CompareTag(tag))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 
     public void powerUpCollected(int powerUp)
     {
@@ -196,23 +227,48 @@ public class MovementController : MonoBehaviour
             speedPower = true;
             currentSpeedTimer = speedPowerTime;
             maxSpeed = 12;
+
+            if (!hasAnimation("SpeedAnim"))
+            {
+                GameObject anim = Instantiate(prefabSpeedAnimation, this.gameObject.transform.position + new Vector3(0, 0.2F, 0), Quaternion.identity);
+                anim.transform.parent = this.gameObject.transform;
+            }
         }
         if (powerUp == 2)
         {
             invertSound.Play();
             invertPower = true;
             currentInvertTimer = invertPowerTime;
+
+            if (!hasAnimation("SwapAnim"))
+            {
+                GameObject anim = Instantiate(prefabSwapAnimation, this.gameObject.transform.position + new Vector3(0, 0.2F, 0), Quaternion.identity);
+                anim.transform.parent = this.gameObject.transform;
+            }
         }
         if (powerUp == 3)
         {
             stunSound.Play();
             stunPower = true;
             currentStunTimer = stunPowerTime;
+
+            if (!hasAnimation("StunAnim"))
+            {
+                GameObject anim = Instantiate(prefabStunAnimation, this.gameObject.transform.position, Quaternion.identity);
+                anim.transform.parent = this.gameObject.transform;
+            }
+
         }
         if (powerUp == 4)
         {
             rangePower = true;
             currentRangeTimer = rangePowerTime;
+
+            if (!hasAnimation("RangeAnim"))
+            {
+                GameObject anim = Instantiate(prefabRangeAnimation, this.gameObject.transform.position, Quaternion.identity);
+                anim.transform.parent = this.gameObject.transform;
+            }
         }
     }
 
