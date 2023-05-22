@@ -40,7 +40,7 @@ public class Timer : MonoBehaviour
         float seconds = Mathf.FloorToInt(time%60);
         float milliseconds = time%1*100;
 
-        if(time > 10){
+        if(time > 30){
         timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
         }
         else{
