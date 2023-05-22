@@ -4285,6 +4285,7 @@ GameObject:
   - component: {fileID: 1280035405}
   - component: {fileID: 1280035404}
   - component: {fileID: 1280035406}
+  - component: {fileID: 1280035407}
   m_Layer: 6
   m_Name: Player_mower
   m_TagString: Player1
@@ -5007,6 +5008,55 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   flameCapability: 0
+--- !u!114 &1280035407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280035392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7072d70c2e532ed47bb9711e3ffbf991, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabRangeAnimation: {fileID: 2922727866609644847, guid: 40711bc7a45534642b6076b72e9233d1, type: 3}
+  prefabSwapAnimation: {fileID: 7437122305281126316, guid: 12de61ec00920b54e9ebf8cbcc0a81b2, type: 3}
+  prefabSpeedAnimation: {fileID: 5566582220032860124, guid: e1d39b9a9e09a9c4a8ef6c777cdb6ef7, type: 3}
+  prefabStunAnimation: {fileID: 7699262102752651516, guid: 17b9a9d4e20fa6a48aa0fa7da23aedcd, type: 3}
+  rb: {fileID: 183733009}
+  maxSpeed: 5
+  directionFacing: {x: 0, y: 1}
+  logMovement: 0
+  playerControls:
+    m_Name: Player Controls
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: e9a40257-5a62-49ad-982f-295b1a3db2ac
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  animator: {fileID: 0}
+  tileManager: {fileID: 0}
+  plant: 0
+  speedPower: 0
+  speedPowerTime: 6
+  currentSpeedTimer: 6
+  speedBoostSound: {fileID: 0}
+  invertPower: 0
+  invertPowerTime: 6
+  currentInvertTimer: 6
+  invertSound: {fileID: 0}
+  rangePower: 0
+  defaultRange: 0.7
+  currentRange: 0.7
+  rangePowerTime: 4
+  currentRangeTimer: 4
+  stunPower: 0
+  stunPowerTime: 6
+  currentStunTimer: 6
+  stunSound: {fileID: 0}
 --- !u!1 &1280476165
 GameObject:
   m_ObjectHideFlags: 0
