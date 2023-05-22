@@ -33,7 +33,9 @@ public class DisplayActivePower : MonoBehaviour
 
     public GameObject lawnAbilityInfo;
 
-    private float cooldown;
+    private float abilityCooldown;
+
+    // private Vector3 temp;
 
 
     // Start is called before the first frame update
@@ -65,6 +67,8 @@ public class DisplayActivePower : MonoBehaviour
         lawnRangePowerText = GameObject.Find("LawnRangePowerText");
 
         lawnAbilityInfo = GameObject.Find("LawnAbilityInfo");
+
+        
 
     }
 
@@ -105,6 +109,10 @@ public class DisplayActivePower : MonoBehaviour
             lawnAbilityInfo.SetActive(true);
         } else {
             lawnAbilityInfo.SetActive(false);
+            // lawnAbilityInfo.transform.localScale = new Vector3(1.1f, 1.1f, 1.1f);
+            // temp = lawnAbilityInfo.transform.localScale;
+            // temp.x += Time.deltaTime;
+            // lawnAbilityInfo.transform.localScale = temp;
         }
 
         // player 2 Plant booster info
@@ -137,9 +145,11 @@ public class DisplayActivePower : MonoBehaviour
             plantRangePowerText.SetActive(false);
         }
         if (player2.GetComponent<SuperRootCapability>().rootCapability == true ){
-            plantAbilityInfo.SetActive(true);
+            // plantAbilityInfo.SetActive(true);
+            plantAbilityInfo.transform.localScale = new Vector3(1f, 1f, 1f);
         } else {
-            plantAbilityInfo.SetActive(false);
+            // plantAbilityInfo.SetActive(false);
+            plantAbilityInfo.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
         }
 
     }
