@@ -955,8 +955,8 @@ MonoBehaviour:
   rangePowerTime: 4
   currentRangeTimer: 4
   stunPower: 0
-  stunPowerTime: 2
-  currentStunTimer: 2
+  stunPowerTime: 3
+  currentStunTimer: 3
   stunSound: {fileID: 183733016}
 --- !u!82 &183733015
 AudioSource:
@@ -2435,7 +2435,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -92.900024, y: 393.4}
+  m_AnchoredPosition: {x: -92.90015, y: 393.4}
   m_SizeDelta: {x: 102.83, y: 102.84}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &818250090
@@ -4680,8 +4680,8 @@ MonoBehaviour:
   rangePowerTime: 4
   currentRangeTimer: 4
   stunPower: 0
-  stunPowerTime: 2
-  currentStunTimer: 2
+  stunPowerTime: 3
+  currentStunTimer: 3
   stunSound: {fileID: 1280035404}
 --- !u!114 &1280035402
 MonoBehaviour:

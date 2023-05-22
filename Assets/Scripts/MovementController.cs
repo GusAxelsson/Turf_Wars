@@ -118,7 +118,7 @@ public class MovementController : MonoBehaviour
         // make sure that we are always only moving in the (nwse) directions
 
         // If we are going to move, we're properly triggering the mowing/planting depending on player type.
-        if (momentum.magnitude > 0)
+        if (momentum.magnitude > 0 && !stunPower)
         {
             if (plant)
             {
