@@ -14,22 +14,12 @@ public class DisplayActivePower : MonoBehaviour
     public GameObject plantStunInfo;
     public GameObject plantRangePowerInfo;
 
-    public GameObject plantSpeedBoosterText;
-    public GameObject plantInvertText;
-    public GameObject plantStunText;
-    public GameObject plantRangePowerText;
-
     public GameObject plantAbilityInfo;
 
     public GameObject lawnSpeedBoosterInfo;
     public GameObject lawnInvertInfo;
     public GameObject lawnStunInfo;
     public GameObject lawnRangePowerInfo;
-
-    public GameObject lawnSpeedBoosterText;
-    public GameObject lawnInvertText;
-    public GameObject lawnStunText;
-    public GameObject lawnRangePowerText;
 
     public GameObject lawnAbilityInfo;
 
@@ -49,22 +39,12 @@ public class DisplayActivePower : MonoBehaviour
         plantStunInfo = GameObject.Find("PlantStunInfo");
         plantRangePowerInfo = GameObject.Find("PlantRangePowerInfo");
 
-        plantSpeedBoosterText = GameObject.Find("PlantSpeedBoosterText");
-        plantInvertText = GameObject.Find("PlantInvertText");
-        plantStunText = GameObject.Find("PlantStunText");
-        plantRangePowerText = GameObject.Find("PlantRangePowerText");
-
         plantAbilityInfo = GameObject.Find("PlantAbilityInfo");
 
         lawnSpeedBoosterInfo = GameObject.Find("LawnSpeedBoosterInfo");
         lawnInvertInfo = GameObject.Find("LawnInvertInfo");
         lawnStunInfo = GameObject.Find("LawnStunInfo");
         lawnRangePowerInfo = GameObject.Find("LawnRangePowerInfo");
-
-        lawnSpeedBoosterText = GameObject.Find("LawnSpeedBoosterText");
-        lawnInvertText = GameObject.Find("LawnInvertText");
-        lawnStunText = GameObject.Find("LawnStunText");
-        lawnRangePowerText = GameObject.Find("LawnRangePowerText");
 
         lawnAbilityInfo = GameObject.Find("LawnAbilityInfo");
 
@@ -79,31 +59,23 @@ public class DisplayActivePower : MonoBehaviour
         // player 1 Lawn mower booster info
         if (player2.GetComponent<MovementController>().speedPower == true){
             plantSpeedBoosterInfo.SetActive(true);
-            plantSpeedBoosterText.SetActive(true);
         } else {
              plantSpeedBoosterInfo.SetActive(false);
-             plantSpeedBoosterText.SetActive(false);
         }
         if (player1.GetComponent<MovementController>().invertPower == true){
             lawnInvertInfo.SetActive(true);
-            lawnInvertText.SetActive(true);
         } else {
             lawnInvertInfo.SetActive(false);
-            lawnInvertText.SetActive(false);
         }
         if (player1.GetComponent<MovementController>().stunPower == true){
             lawnStunInfo.SetActive(true);
-            lawnStunText.SetActive(true);
         } else {
             lawnStunInfo.SetActive(false);
-            lawnStunText.SetActive(false);
         }
         if (player1.GetComponent<MovementController>().rangePower == true){
             lawnRangePowerInfo.SetActive(true);
-            lawnRangePowerText.SetActive(true);
         } else {
             lawnRangePowerInfo.SetActive(false);
-            lawnRangePowerText.SetActive(false);
         }
         if (player1.GetComponent<FlamethrowerCapability>().flameCapability == true ){
             lawnAbilityInfo.SetActive(true);
@@ -118,31 +90,23 @@ public class DisplayActivePower : MonoBehaviour
         // player 2 Plant booster info
         if (player1.GetComponent<MovementController>().speedPower == true){
             lawnSpeedBoosterInfo.SetActive(true);
-            lawnSpeedBoosterText.SetActive(true);
         } else {
              lawnSpeedBoosterInfo.SetActive(false);
-            lawnSpeedBoosterText.SetActive(false);
         }
         if (player2.GetComponent<MovementController>().invertPower == true){
             plantInvertInfo.SetActive(true);
-            plantInvertText.SetActive(true);
         } else {
             plantInvertInfo.SetActive(false);
-            plantInvertText.SetActive(false);
         }
         if (player2.GetComponent<MovementController>().stunPower == true){
             plantStunInfo.SetActive(true);
-            plantStunText.SetActive(true);
         } else {
             plantStunInfo.SetActive(false);
-            plantStunText.SetActive(false);
         }
         if (player2.GetComponent<MovementController>().rangePower == true ){
             plantRangePowerInfo.SetActive(true);
-            plantRangePowerText.SetActive(true);
         } else {
             plantRangePowerInfo.SetActive(false);
-            plantRangePowerText.SetActive(false);
         }
         if (player2.GetComponent<SuperRootCapability>().rootCapability == true ){
             // plantAbilityInfo.SetActive(true);

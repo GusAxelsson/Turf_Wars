@@ -654,7 +654,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &169787933
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1734,7 +1734,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &592996404
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3221,7 +3221,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &992227259
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3905,19 +3905,11 @@ MonoBehaviour:
   plantInvertInfo: {fileID: 1358440298}
   plantStunInfo: {fileID: 621527593}
   plantRangePowerInfo: {fileID: 1869898665}
-  plantSpeedBoosterText: {fileID: 592996403}
-  plantInvertText: {fileID: 1400265105}
-  plantStunText: {fileID: 1794210649}
-  plantRangePowerText: {fileID: 2033936360}
   plantAbilityInfo: {fileID: 492305956}
   lawnSpeedBoosterInfo: {fileID: 1016134879}
   lawnInvertInfo: {fileID: 1358440298}
   lawnStunInfo: {fileID: 58642181}
   lawnRangePowerInfo: {fileID: 818250088}
-  lawnSpeedBoosterText: {fileID: 992227258}
-  lawnInvertText: {fileID: 1922932028}
-  lawnStunText: {fileID: 169787932}
-  lawnRangePowerText: {fileID: 1765497733}
   lawnAbilityInfo: {fileID: 492305956}
 --- !u!222 &1140357726
 CanvasRenderer:
@@ -5399,7 +5391,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1400265106
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7614,7 +7606,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1765497734
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7690,7 +7682,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1794210650
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8027,7 +8019,7 @@ MonoBehaviour:
   planterColor: {r: 0, g: 1, b: 0, a: 1}
   mowerColor: {r: 1, g: 0, b: 0, a: 1}
   flashColor: {r: 0, g: 0, b: 0, a: 1}
-  speed: 1
+  flickerSpeed: 1
 --- !u!114 &1892422194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8097,19 +8089,11 @@ MonoBehaviour:
   plantInvertInfo: {fileID: 0}
   plantStunInfo: {fileID: 0}
   plantRangePowerInfo: {fileID: 0}
-  plantSpeedBoosterText: {fileID: 0}
-  plantInvertText: {fileID: 0}
-  plantStunText: {fileID: 0}
-  plantRangePowerText: {fileID: 0}
   plantAbilityInfo: {fileID: 0}
   lawnSpeedBoosterInfo: {fileID: 0}
   lawnInvertInfo: {fileID: 0}
   lawnStunInfo: {fileID: 0}
   lawnRangePowerInfo: {fileID: 0}
-  lawnSpeedBoosterText: {fileID: 0}
-  lawnInvertText: {fileID: 0}
-  lawnStunText: {fileID: 0}
-  lawnRangePowerText: {fileID: 0}
   lawnAbilityInfo: {fileID: 0}
 --- !u!1 &1917789409
 GameObject:
@@ -8236,7 +8220,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1922932029
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8312,7 +8296,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2033936361
 RectTransform:
   m_ObjectHideFlags: 0
