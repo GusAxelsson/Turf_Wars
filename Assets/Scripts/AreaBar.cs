@@ -15,10 +15,12 @@ public class AreaBar : MonoBehaviour
     public Color flashColor = Color.black;
 
     [Range(1, 5)]
-    public float speed = 1;
+    public float flickerSpeed = 1;
 
     void Start(){
         fillImg = GetComponentsInChildren<Image>();
+        fillImg[0].color = mowerColor;
+        fillImg[1].color = planterColor;
     }
 
     void Update(){
@@ -26,11 +28,13 @@ public class AreaBar : MonoBehaviour
         scoreSlider.value = tilemanager.GetGrassPercentage();
 
         // Color flickering of the team covering most of the area
-        if(tilemanager.GetGrassPercentage() > 50){
-            fillImg[1].color = Color.Lerp(planterColor, flashColor, Mathf.PingPong(Time.time * speed, 1));
+        if(tilemanager.GetGrassPercentage() > 60){
+            fillImg[1].color = Color.Lerp(planterColor, flashColor, Mathf.PingPong(Time.time * flickerSpeed, 1));
+            fillImg[0].color = mowerColor;
         }
-        else if(tilemanager.GetGrassPercentage() < 50){
-            fillImg[0].color = Color.Lerp(mowerColor, flashColor, Mathf.PingPong(Time.time * speed, 1));  
+        else if(tilemanager.GetGrassPercentage() < 40){
+            fillImg[0].color = Color.Lerp(mowerColor, flashColor, Mathf.PingPong(Time.time * flickerSpeed, 1)); 
+            fillImg[1].color = planterColor;
         }
         else{
             fillImg[0].color = mowerColor;
