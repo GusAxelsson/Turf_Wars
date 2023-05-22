@@ -10,7 +10,6 @@ public class Timer : MonoBehaviour
     public float timer = 181;
     public TextMeshProUGUI timeText;
 
-    public GameOver gameOverScreen;
     public PointSystem pointsystem;
 
     // Update is called once per frame
