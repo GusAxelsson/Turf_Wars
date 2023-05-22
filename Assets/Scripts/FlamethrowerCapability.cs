@@ -10,7 +10,7 @@ public class FlamethrowerCapability : MonoBehaviour
     private MovementController movementController;
     private SpriteRenderer renderer;
 
-    private float cooldown;
+    public float cooldown;
     private Vector3 stunArea;
 
     public LayerMask planterLayer;

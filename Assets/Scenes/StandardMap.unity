@@ -1336,6 +1336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   superRootPrefab: {fileID: 9013685764425258692, guid: c1064fa5d205bd14b8911c8af161f692, type: 3}
   tileManager: {fileID: 798685488}
+  cooldown: 0
   mowerLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -1524,7 +1525,7 @@ RectTransform:
   m_GameObject: {fileID: 492305956}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.656672, y: 0.9636805, z: 0}
+  m_LocalScale: {x: 0.696672, y: 1.0036805, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1140357724}
@@ -4853,6 +4854,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flameThrowerPrefab: {fileID: 8981540821465086582, guid: 35f0e508734ecbe40ae60dfab9a0a28e, type: 3}
   tileManager: {fileID: 798685488}
+  cooldown: 0
   planterLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -5159,6 +5161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flameThrowerPrefab: {fileID: 0}
   tileManager: {fileID: 0}
+  cooldown: 0
   planterLayer:
     serializedVersion: 2
     m_Bits: 0

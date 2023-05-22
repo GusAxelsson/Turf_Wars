@@ -24,6 +24,7 @@ public class DisplayActivePower : MonoBehaviour
     public GameObject lawnAbilityInfo;
 
     private float abilityCooldown;
+    private float temppp;
 
     // private Vector3 temp;
 
@@ -78,13 +79,28 @@ public class DisplayActivePower : MonoBehaviour
             lawnRangePowerInfo.SetActive(false);
         }
         if (player1.GetComponent<FlamethrowerCapability>().flameCapability == true ){
-            lawnAbilityInfo.SetActive(true);
+            lawnAbilityInfo.GetComponent<Image>().color  = new Color(1f, 1f, 1f);
+            lawnAbilityInfo.transform.localScale = new Vector3(0.7f, 1f, 1f);
         } else {
-            lawnAbilityInfo.SetActive(false);
-            // lawnAbilityInfo.transform.localScale = new Vector3(1.1f, 1.1f, 1.1f);
-            // temp = lawnAbilityInfo.transform.localScale;
-            // temp.x += Time.deltaTime;
-            // lawnAbilityInfo.transform.localScale = temp;
+            lawnAbilityInfo.GetComponent<Image>().color  = new Color(0.5f, 0.5f, 0.5f);
+            if (player1.GetComponent<FlamethrowerCapability>().cooldown < 15 ){
+                lawnAbilityInfo.transform.localScale = new Vector3(0.1f, 0.4f, 0.4f);
+            } 
+            if (player1.GetComponent<FlamethrowerCapability>().cooldown < 14 ){
+                lawnAbilityInfo.transform.localScale = new Vector3(0.2f, 0.5f, 0.5f);
+            } 
+            if (player1.GetComponent<FlamethrowerCapability>().cooldown < 12 ){
+                lawnAbilityInfo.transform.localScale = new Vector3(0.3f, 0.6f, 0.6f);
+            } 
+            if (player1.GetComponent<FlamethrowerCapability>().cooldown < 10 ){
+                lawnAbilityInfo.transform.localScale = new Vector3(0.4f, 0.7f, 0.7f);
+            } 
+            if (player1.GetComponent<FlamethrowerCapability>().cooldown < 7 ){
+                lawnAbilityInfo.transform.localScale = new Vector3(0.5f, 0.8f, 0.8f);
+            } 
+            if (player1.GetComponent<FlamethrowerCapability>().cooldown < 3 ){
+                lawnAbilityInfo.transform.localScale = new Vector3(0.6f, 0.9f, 0.9f);
+            }     
         }
 
         // player 2 Plant booster info
@@ -109,11 +125,28 @@ public class DisplayActivePower : MonoBehaviour
             plantRangePowerInfo.SetActive(false);
         }
         if (player2.GetComponent<SuperRootCapability>().rootCapability == true ){
-            // plantAbilityInfo.SetActive(true);
+            plantAbilityInfo.GetComponent<Image>().color  = new Color(1f, 1f, 1f);
             plantAbilityInfo.transform.localScale = new Vector3(1f, 1f, 1f);
         } else {
-            // plantAbilityInfo.SetActive(false);
-            plantAbilityInfo.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            plantAbilityInfo.GetComponent<Image>().color  = new Color(0.5f, 0.5f, 0.5f);
+            if (player2.GetComponent<SuperRootCapability>().cooldown < 15 ){
+                plantAbilityInfo.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+            } 
+            if (player2.GetComponent<SuperRootCapability>().cooldown < 14 ){
+                plantAbilityInfo.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            } 
+            if (player2.GetComponent<SuperRootCapability>().cooldown < 12 ){
+                plantAbilityInfo.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
+            } 
+            if (player2.GetComponent<SuperRootCapability>().cooldown < 10 ){
+                plantAbilityInfo.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+            } 
+            if (player2.GetComponent<SuperRootCapability>().cooldown < 7 ){
+                plantAbilityInfo.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+            } 
+            if (player2.GetComponent<SuperRootCapability>().cooldown < 3 ){
+                plantAbilityInfo.transform.localScale = new Vector3(0.9f, 0.9f, 0.9f);
+            }     
         }
 
     }

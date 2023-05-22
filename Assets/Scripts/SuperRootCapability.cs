@@ -10,7 +10,7 @@ public class SuperRootCapability : MonoBehaviour
     private MovementController movementController;
     private SpriteRenderer renderer;
 
-    private float cooldown;
+    public float cooldown;
 
     public LayerMask mowerLayer;
 
