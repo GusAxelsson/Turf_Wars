@@ -46,6 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   impendingDoomPrefab: {fileID: 5478852868132076568, guid: 336afd877282fee4fa290619d6fc6bc3, type: 3}
   targetObject: {fileID: 0}
-  spawnRadius: 2
-  spawnRate: 0.3
+  spawnRadius: 3
+  spawnRate: 0.2
   timer: 10

@@ -9,8 +9,11 @@ public class Timer : MonoBehaviour
 
     public float timer = 181;
     public PixelFontRenderer timeText;
+    public VolcanoEvent volcano;
 
     public PointSystem pointsystem;
+
+    private bool triggeredVolcano = false;
 
     // Update is called once per frame
     void Update()
@@ -18,6 +21,12 @@ public class Timer : MonoBehaviour
         if (timer > 0)
         {
             timer -= Time.deltaTime;
+
+            if (!triggeredVolcano && timer < 65.0F)
+            {
+                triggeredVolcano = true;
+                volcano.activate();
+            }
         }
         else
         {

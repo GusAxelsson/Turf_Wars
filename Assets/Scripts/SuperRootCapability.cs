@@ -41,7 +41,7 @@ public class SuperRootCapability : MonoBehaviour
 
             RootAttack(spawnPosition);
 
-            cooldown = 10;
+            cooldown = 5;
         }
     }
 

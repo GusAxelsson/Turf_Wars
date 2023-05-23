@@ -33,6 +33,7 @@ public class VolcanoEruptionController : MonoBehaviour
         else
         {
             Destroy(this.gameObject);
+            GameObject.FindGameObjectWithTag("VolcanoEvent").GetComponent<VolcanoEvent>().terminateRumble();
         }
     }
 }

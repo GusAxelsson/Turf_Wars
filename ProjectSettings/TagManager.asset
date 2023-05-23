@@ -12,6 +12,7 @@ TagManager:
   - SwapAnim
   - StunAnim
   - Bar
+  - VolcanoEvent
   layers:
   - Default
   - TransparentFX

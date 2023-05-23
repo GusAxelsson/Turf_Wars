@@ -5,6 +5,7 @@ using UnityEngine;
 public class PowerupSpawned : MonoBehaviour
 {
     public GameObject[] powerList;
+
     public GameObject tileHandler;
 
     public bool debugSpawnArea = false;
@@ -42,6 +43,9 @@ public class PowerupSpawned : MonoBehaviour
 
             
     }
+
+
+    
     // this code will check if the players are to close to the rolled position
     private bool playersTooClose(float xIndex,float yIndex){
         //convert to world coordinates

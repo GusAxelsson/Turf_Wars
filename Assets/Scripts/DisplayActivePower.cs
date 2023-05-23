@@ -84,7 +84,7 @@ public class DisplayActivePower : MonoBehaviour
         } else {
             lawnAbilityInfo.GetComponent<Image>().color  = new Color(0.5f, 0.5f, 0.5f);
 
-            float scaleFactor = (10 - player1.GetComponent<FlamethrowerCapability>().cooldown) / 10;
+            float scaleFactor = (5 - player1.GetComponent<FlamethrowerCapability>().cooldown) / 5;
             lawnAbilityInfo.transform.localScale = new Vector3(scaleFactor, scaleFactor, 1f);
         }
 
@@ -114,7 +114,7 @@ public class DisplayActivePower : MonoBehaviour
             plantAbilityInfo.transform.localScale = new Vector3(1f, 1f, 1f);
         } else {
             plantAbilityInfo.GetComponent<Image>().color  = new Color(0.5f, 0.5f, 0.5f);
-            float scaleFactor = (10 - player2.GetComponent<SuperRootCapability>().cooldown) / 10;
+            float scaleFactor = (5 - player2.GetComponent<SuperRootCapability>().cooldown) / 5;
             plantAbilityInfo.transform.localScale = new Vector3(scaleFactor, scaleFactor, 1f);
         }
 
