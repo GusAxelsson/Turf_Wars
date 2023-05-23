@@ -76,6 +76,8 @@ public class PixelFontRenderer : MonoBehaviour
                 offset += sprite.bounds.size.x * scale - (1.0F / 32.0F) * scale;
             } else if (text[index] == ' ')
             {
+                SpriteRenderer spriteRenderer = instantiatedSprites[i].GetComponent<SpriteRenderer>();
+                spriteRenderer.sprite = null;
                 offset += (8.0F / 32.0F) * scale - (1.0F / 32.0F) * scale;
             }
          }
