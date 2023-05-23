@@ -44,7 +44,9 @@ public class TileManager : MonoBehaviour
         
         grid = new GameObject[gridWidth, gridHeight];
         totalGrassTiles = 0;
+        
         CountAvailibleTiles();
+        NullGrid();
         InitializeGrid();
     }
 
@@ -56,6 +58,17 @@ public class TileManager : MonoBehaviour
     public void DebugGridPos(Vector2 currentPos)
     {
         Debug.Log(WorldToGrid(currentPos.x,currentPos.y));
+    }
+
+    private void NullGrid()
+    {
+        for (int x = 0; x < gridWidth; x++)
+        {
+            for (int y = 0; y < gridHeight; y++)
+            {
+                grid[x, y] = null;
+            }
+        }
     }
 
     private void CountAvailibleTiles()
@@ -131,15 +144,11 @@ public class TileManager : MonoBehaviour
                     {
                         return;
                     }
-                    if ((Random.Range(0F, 1F) <= floatingProbability) & TileIsAccessible(Mathf.FloorToInt(x / 2), Mathf.FloorToInt(y / 2)))
+                    if ((Random.Range(0F, 1F) <= floatingProbability) & TileIsAccessible(Mathf.FloorToInt(x / 2), Mathf.FloorToInt(y / 2)) & grid[x,y] == null) // need to check if grid is null 
                     {
                         GameObject grass = instantiateGrass(x, y);
                         grid[x, y] = grass;
                         totalGrassTiles++;
-                    }
-                    else
-                    {
-                        grid[x, y] = null;
                     }
                 }
             }

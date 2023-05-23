@@ -21,13 +21,23 @@ public class PointSystem : MonoBehaviour
     private float areaPoints = 1000;
     private float grassPercentage;
 
-    private bool spawned = false;
+    // Variables related to moving the points from center of screen to corresponding player
+    private GameObject pointsToMove;
+    private bool movingPoints = false;
+    private string moveTarget;
+    private int MoveValue;
+    private Vector3 player1PointsDestination = new(11.5F, 7F, 0); // done like this to avoid changing the worldMap file
+    private Vector3 player2PointsDestination = new(-11.5F, 7F, 0);
 
     void Start()
     {
         startTime = Time.time;
     }
 
+    private void FixedUpdate()
+    {
+        MovePoints();
+    }
     void Update()
     {
         grassPercentage = tilemanager.GetGrassPercentage();
@@ -44,7 +54,7 @@ public class PointSystem : MonoBehaviour
             timer = 0;
         }
         updateMultiplyText();
-        animatePoints("Player1",3000);
+        // MovePoints();
     }
     void updateMultiplyText()
     {
@@ -67,14 +77,52 @@ public class PointSystem : MonoBehaviour
         return Mathf.FloorToInt(areaPoints * currentMultiplier());
     }
 
-    void animatePoints(string target, int points)
+    /// <summary>
+    /// Instantiates the text rendered component. Assigns target and sets "moving points" to true
+    /// </summary>
+    void SpawnPoints(string target, int points)
     {
-        if (Time.time - startTime > 10 && spawned == false)
+        pointsToMove = Instantiate(animatedPoints, new Vector3(0,7,0), Quaternion.identity);
+        pointsToMove.GetComponent<PixelFontRenderer>().SetText(points.ToString());
+        pointsToMove.GetComponent<PixelFontRenderer>().scale = 2;
+        movingPoints = true;
+        moveTarget = target;
+    }
+
+    /// <summary>
+    /// Moves points step by step towards target players score
+    /// When they reach the position the element is destroyed and points incremented
+    /// </summary>
+    void MovePoints()
+    {
+        if (movingPoints)
         {
-            GameObject movePoints = Instantiate(animatedPoints, new Vector3(0,7,0), Quaternion.identity);
-            movePoints.GetComponent<PixelFontRenderer>().SetText(points.ToString());
-            spawned = true;
-            Debug.Log("Spawned at: " + movePoints.transform.position);
+            if (moveTarget == "Player1")
+            {
+                if (Mathf.Abs(player1PointsDestination.x - pointsToMove.transform.position.x) < 0.5F)
+                {
+                    Destroy(pointsToMove);
+                    movingPoints = false;
+                    pointsMowers += MoveValue;
+                    pointsMowersT.SetText(pointsMowers.ToString());
+                    return;
+                }
+                pointsToMove.transform.position = Vector3.MoveTowards(pointsToMove.transform.position, player1PointsDestination, 11F * Time.fixedDeltaTime);
+                Debug.Log("moved to: " + pointsToMove.transform.position);
+            }
+            else
+            {
+                if (Mathf.Abs(player2PointsDestination.x - pointsToMove.transform.position.x) < 0.5F)
+                {
+                    Destroy(pointsToMove);
+                    movingPoints = false;
+                    pointsPlanters += MoveValue;
+                    pointsPlantersT.SetText(pointsPlanters.ToString());
+                    return;
+                }
+                pointsToMove.transform.position = Vector3.MoveTowards(pointsToMove.transform.position, player2PointsDestination, 11F * Time.fixedDeltaTime);
+                Debug.Log("moved to: " + pointsToMove.transform.position);
+            }
         }
     }
 
@@ -82,13 +130,15 @@ public class PointSystem : MonoBehaviour
     void AreaPoints(){
         if(grassPercentage > 60){
             pointsAudio.Play();
-            pointsPlanters += calcPoints();
-            pointsPlantersT.SetText(pointsPlanters.ToString());
+            int pointsToAdd = calcPoints();
+            MoveValue = pointsToAdd;
+            SpawnPoints("Player2", pointsToAdd);
         }
         else if(grassPercentage < 40){
             pointsAudio.Play();
-            pointsMowers += calcPoints();
-            pointsMowersT.SetText(pointsMowers.ToString());
+            int pointsToAdd = calcPoints();
+            MoveValue = pointsToAdd;
+            SpawnPoints("Player1", pointsToAdd);
 
         }
     }
