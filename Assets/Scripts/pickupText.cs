@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class pickupText : MonoBehaviour
 {
@@ -103,12 +105,19 @@ public class pickupText : MonoBehaviour
     {
         for (int i = 0; i < activeText.Count; i++)
         {
-            if(Time.time - timers[i] > 0.6F)
+            if (Time.time - timers[i] > 0.6F)
             {
                 Destroy(activeText[i]);
                 activeText.RemoveAt(i);
                 timers.RemoveAt(i);
                 // remove at if it does not work
+            }
+            else
+            {
+                Image image = activeText[i].GetComponent<Image>();
+                Color oldColor = image.color;
+                Color newColor = new Color(oldColor.r, oldColor.g, oldColor.b, (float)(oldColor.a - Time.deltaTime));
+                image.color = newColor;
             }
         }
     }
