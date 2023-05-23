@@ -2019,7 +2019,7 @@ MonoBehaviour:
   tilemanager: {fileID: 798685488}
   pointsMowersT: {fileID: 778415005}
   pointsPlantersT: {fileID: 1977929732}
-  animatedPoints: {fileID: 0}
+  animatedPoints: {fileID: 8436225106134833891, guid: 5a9253f9280f63d4ebc53349d26740be, type: 3}
   multiplyRenderer: {fileID: 349610676}
   pointsAudio: {fileID: 596226622}
   pointsPlanters: 0

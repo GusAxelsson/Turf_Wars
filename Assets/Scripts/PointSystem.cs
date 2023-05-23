@@ -9,7 +9,7 @@ public class PointSystem : MonoBehaviour
     public PixelFontRenderer pointsMowersT;
     public PixelFontRenderer pointsPlantersT;
 
-    public PixelFontRenderer animatedPoints;
+    public GameObject animatedPoints;
     public PixelFontRenderer multiplyRenderer;
 
     public AudioSource pointsAudio;
@@ -20,6 +20,8 @@ public class PointSystem : MonoBehaviour
     private int pointTimer = 5;
     private float areaPoints = 1000;
     private float grassPercentage;
+
+    private bool spawned = false;
 
     void Start()
     {
@@ -41,9 +43,14 @@ public class PointSystem : MonoBehaviour
             AreaPoints();
             timer = 0;
         }
+        updateMultiplyText();
+        animatePoints("Player1",3000);
+    }
+    void updateMultiplyText()
+    {
         float cMultiplier = currentMultiplier();
         cMultiplier = Mathf.Round(cMultiplier * 10.0f) * 0.1f;
-        multiplyRenderer.SetText(string.Format("x:{0:0}.{1:0}",(int)cMultiplier, (cMultiplier % 1) * 10F));
+        multiplyRenderer.SetText(string.Format("x:{0:0}.{1:0}", (int)cMultiplier, (cMultiplier % 1) * 10F));
     }
 
     float currentMultiplier()
@@ -60,9 +67,15 @@ public class PointSystem : MonoBehaviour
         return Mathf.FloorToInt(areaPoints * currentMultiplier());
     }
 
-    void animatePoints()
+    void animatePoints(string target, int points)
     {
-
+        if (Time.time - startTime > 10 && spawned == false)
+        {
+            GameObject movePoints = Instantiate(animatedPoints, new Vector3(0,7,0), Quaternion.identity);
+            movePoints.GetComponent<PixelFontRenderer>().SetText(points.ToString());
+            spawned = true;
+            Debug.Log("Spawned at: " + movePoints.transform.position);
+        }
     }
 
     // Adds points to the team covering over 50% of the area

@@ -11,6 +11,7 @@ TagManager:
   - SpeedAnim
   - SwapAnim
   - StunAnim
+  - Bar
   layers:
   - Default
   - TransparentFX
