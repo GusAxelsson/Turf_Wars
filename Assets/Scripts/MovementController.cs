@@ -16,7 +16,12 @@ public class MovementController : MonoBehaviour
     Vector2 movementDirection;
     public Vector2 directionFacing = new Vector2(0, 1);
     public bool logMovement = false;
-    public InputAction playerControls;
+
+    public InputAction playerControlUP;
+    public InputAction playerControlLEFT;
+    public InputAction playerControlDOWN;
+    public InputAction playerControlRIGHT;
+
     public Animator animator;
     public TileManager tileManager;
     public bool plant;
@@ -45,44 +50,82 @@ public class MovementController : MonoBehaviour
     public float currentStunTimer = 6.0f;
     public AudioSource stunSound;
 
+    // Create a list of parts.
+    List<int> keysPressed =  new List<int>();
 
 
     // This section is recommended by documentation //
     private void OnEnable()
     {
-        playerControls.Enable();
+        playerControlUP.Enable();
+        playerControlDOWN.Enable();
+        playerControlLEFT.Enable();
+        playerControlRIGHT.Enable();
     }
     private void OnDisable()
     {
-        playerControls.Disable();
+        playerControlUP.Disable();
+        playerControlDOWN.Disable();
+        playerControlLEFT.Disable();
+        playerControlRIGHT.Disable();
     }
     //////////////////////////////////////////////////
 
-    /// <summary>
-    /// Ensures that a vector does not include diagonal movement.
-    /// </summary>
-    private Vector2 simplifyDirectionalVector(Vector2 direction)
+
+    void updateControlState(InputAction action, int index)
     {
-        Vector2 newDirection = new Vector2(direction.x, direction.y);
-        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+        if (action.ReadValue<float>() > 0)
         {
-            newDirection.x = Mathf.Sign(direction.x) * direction.magnitude;
-            newDirection.y = 0;
+            if (!keysPressed.Contains(index))
+            {
+                keysPressed.Insert(0, index);
+            }
         }
         else
         {
-            newDirection.x = 0;
-            newDirection.y = Mathf.Sign(direction.y) * direction.magnitude;
+            if (keysPressed.Contains(index))
+            {
+                keysPressed.Remove(index);
+            }
         }
-        return newDirection;
+    }
+
+    void updateControlStates()
+    {
+        updateControlState(playerControlUP, 0);
+        updateControlState(playerControlLEFT, 1);
+        updateControlState(playerControlRIGHT, 2);
+        updateControlState(playerControlDOWN, 3);
+
+    
+        if (keysPressed.Count > 0)
+        {
+            switch (keysPressed[0])
+            {
+                case 0:
+                    movementDirection = new Vector2(0, 1);
+                    break;
+                case 1:
+                    movementDirection = new Vector2(-1, 0);
+                    break;
+                case 2:
+                    movementDirection = new Vector2(1, 0);
+                    break;
+                case 3:
+                    movementDirection = new Vector2(0, -1);
+                    break;
+            }
+        } else
+        {
+            movementDirection = new Vector2(0, 0);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         // read direction from playerControls
-        movementDirection = playerControls.ReadValue<Vector2>();
-        movementDirection = simplifyDirectionalVector(movementDirection);
+        updateControlStates();
 
         // Only change sprite on actual movement.
         if (movementDirection.magnitude > 0)
