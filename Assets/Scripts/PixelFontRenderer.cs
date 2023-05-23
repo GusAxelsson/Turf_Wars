@@ -6,8 +6,8 @@ public class PixelFontRenderer : MonoBehaviour
 {
 
     private static readonly string characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!:.";
-    public Sprite[] sprites; // Assign the sprites in the inspector
-    public GameObject characterPrefab; // Assign a prefab in the inspector. It should have a SpriteRenderer component
+    public Sprite[] sprites; 
+    public GameObject characterPrefab;
 
     public bool rightBound = false;
     public float scale = 1.0F;
@@ -39,6 +39,7 @@ public class PixelFontRenderer : MonoBehaviour
         {
             GameObject newCharacter = Instantiate(characterPrefab, transform);
             newCharacter.transform.parent = this.gameObject.transform;
+
             instantiatedSprites.Add(newCharacter);
         }
         while (instantiatedSprites.Count > text.Length)
@@ -67,7 +68,11 @@ public class PixelFontRenderer : MonoBehaviour
                 SpriteRenderer spriteRenderer = instantiatedSprites[i].GetComponent<SpriteRenderer>();
                 Sprite sprite = sprites[spriteIndex];
                 spriteRenderer.sprite = sprites[spriteIndex];
-                instantiatedSprites[i].transform.position = this.gameObject.transform.position + new Vector3(offset, 0, 0) * sign;
+
+                float additionalOffset = rightBound ? sprite.bounds.size.x * scale : 0;
+
+                instantiatedSprites[i].transform.position = this.gameObject.transform.position + new Vector3(offset + additionalOffset, 0, 0) * sign;
+
                 offset += sprite.bounds.size.x * scale - (1.0F / 32.0F) * scale;
             } else if (text[index] == ' ')
             {
