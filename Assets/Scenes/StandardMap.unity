@@ -4989,7 +4989,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 35e3c8b1c6df8e544b0590d23315be82, type: 3}
+  m_Sprite: {fileID: 21300000, guid: eba7088e0340e774288d9c328fecb66f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12814,9 +12814,9 @@ MonoBehaviour:
   fillImg:
   - {fileID: 6843912}
   - {fileID: 1067490113}
-  planterColor: {r: 0, g: 1, b: 0, a: 1}
-  mowerColor: {r: 1, g: 0, b: 0, a: 1}
-  flashColor: {r: 0, g: 0, b: 0, a: 1}
+  planterColor: {r: 0.2901961, g: 0.7176471, b: 0.20000002, a: 1}
+  mowerColor: {r: 0.7058824, g: 0.1254902, b: 0.16470589, a: 1}
+  flashColor: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
   flickerSpeed: 1
 --- !u!114 &1892422194
 MonoBehaviour:
@@ -12865,7 +12865,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 15.1
+  m_Value: 60
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
