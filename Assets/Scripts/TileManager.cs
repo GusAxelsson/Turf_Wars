@@ -134,7 +134,6 @@ public class TileManager : MonoBehaviour
                     if ((Random.Range(0F, 1F) <= floatingProbability) & TileIsAccessible(Mathf.FloorToInt(x / 2), Mathf.FloorToInt(y / 2)))
                     {
                         GameObject grass = instantiateGrass(x, y);
-                        Debug.Log(x + " " + y);
                         grid[x, y] = grass;
                         totalGrassTiles++;
                     }

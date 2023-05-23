@@ -81,7 +81,7 @@ public class FlamethrowerCapability : MonoBehaviour
                 planter.GetComponent<MovementController>().powerUpCollected(3);
             }
 
-            cooldown = 15;
+            cooldown = 10;
         }
     }
 }
