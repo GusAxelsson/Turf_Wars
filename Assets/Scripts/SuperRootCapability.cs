@@ -14,6 +14,8 @@ public class SuperRootCapability : MonoBehaviour
 
     public LayerMask mowerLayer;
 
+    public AudioSource rootSound;
+
     public bool rootCapability;
 
     void Start()
@@ -35,6 +37,7 @@ public class SuperRootCapability : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftControl) && cooldown <= 0)
         {
+            rootSound.Play();
             rootCapability = false;
             Vector3 spawnPosition = this.transform.position;
             GameObject animation = Instantiate(superRootPrefab, spawnPosition, Quaternion.identity);

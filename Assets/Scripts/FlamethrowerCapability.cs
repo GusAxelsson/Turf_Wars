@@ -15,6 +15,8 @@ public class FlamethrowerCapability : MonoBehaviour
 
     public LayerMask planterLayer;
 
+    public AudioSource flameSound;
+
     public bool flameCapability;
 
     void Start()
@@ -36,6 +38,7 @@ public class FlamethrowerCapability : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.RightControl) && cooldown <= 0)
         {
+            flameSound.Play();
             flameCapability = false;
             Debug.Log(movementController.GetDirection());
             Vector2 direction = movementController.GetDirection();
