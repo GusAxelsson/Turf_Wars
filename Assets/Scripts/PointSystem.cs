@@ -8,6 +8,7 @@ public class PointSystem : MonoBehaviour
     public TileManager tilemanager;
     public TextMeshProUGUI pointsPlantersText;
     public TextMeshProUGUI pointsMowersText;
+    public AudioSource pointsAudio;
     public int pointsPlanters = 0;
     public int pointsMowers = 0;
     private float startTime;
@@ -49,10 +50,12 @@ public class PointSystem : MonoBehaviour
     // Adds points to the team covering over 50% of the area
     void AreaPoints(){
         if(grassPercentage > 60){
+            pointsAudio.Play();
             pointsPlanters += calcPoints();
             pointsPlantersText.text = pointsPlanters.ToString();
         }
         else if(grassPercentage < 40){
+            pointsAudio.Play();
             pointsMowers += calcPoints();
             pointsMowersText.text = pointsMowers.ToString();
         }
