@@ -6,10 +6,11 @@ using TMPro;
 public class PointSystem : MonoBehaviour
 {
     public TileManager tilemanager;
-    public TextMeshProUGUI pointsPlantersText;
-    public TextMeshProUGUI pointsMowersText;
+    public PixelFontRenderer pointsMowersT;
+    public PixelFontRenderer pointsPlantersT;
 
-    public TextMeshProUGUI animatedPoints;
+    public PixelFontRenderer animatedPoints;
+    public PixelFontRenderer multiplyRenderer;
 
     public AudioSource pointsAudio;
     public int pointsPlanters = 0;
@@ -22,7 +23,6 @@ public class PointSystem : MonoBehaviour
 
     void Start()
     {
-        pointsPlantersText.text = pointsPlanters.ToString();
         startTime = Time.time;
     }
 
@@ -41,6 +41,15 @@ public class PointSystem : MonoBehaviour
             AreaPoints();
             timer = 0;
         }
+        float cMultiplier = currentMultiplier();
+        cMultiplier = Mathf.Round(cMultiplier * 10.0f) * 0.1f;
+        multiplyRenderer.SetText(string.Format("x:{0:0}.{1:0}",(int)cMultiplier, (cMultiplier % 1) * 10F));
+    }
+
+    float currentMultiplier()
+    {
+        float gameTime = Time.time - startTime;
+        return 1.0F + ((gameTime / 180.0F) * 9.0F);
     }
 
     // points scale from 1000 per tic in at the start of the game to 10000 at the end of the game
@@ -60,12 +69,13 @@ public class PointSystem : MonoBehaviour
         if(grassPercentage > 60){
             pointsAudio.Play();
             pointsPlanters += calcPoints();
-            pointsPlantersText.text = pointsPlanters.ToString();
+            pointsPlantersT.SetText(pointsPlanters.ToString());
         }
         else if(grassPercentage < 40){
             pointsAudio.Play();
             pointsMowers += calcPoints();
-            pointsMowersText.text = pointsMowers.ToString();
+            pointsMowersT.SetText(pointsMowers.ToString());
+
         }
     }
 }
