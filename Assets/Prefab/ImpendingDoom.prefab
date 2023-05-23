@@ -214,6 +214,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8094808f13d34a244a7a5b0529c70f72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player1: {fileID: 0}
+  player2: {fileID: 0}
   meteor: {fileID: 687576010086765966}
   shadow: {fileID: 2966792381200625710}
   speed: 20
+  debrisSound: {fileID: 0}

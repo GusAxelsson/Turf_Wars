@@ -10,6 +10,9 @@ public class VolcanoEvent : MonoBehaviour
     private GameObject player2;
 
     public GameObject background;
+    
+    public AudioSource rumbleSound;
+    public AudioSource debrisSound;
 
     private Vector3 originalBackgroundTransform;
     private float rumbleDistance = 0.05F;
@@ -102,5 +105,6 @@ public class VolcanoEvent : MonoBehaviour
     public void activate()
     {
         this.activated = true;
+        rumbleSound.Play();
     }
 }

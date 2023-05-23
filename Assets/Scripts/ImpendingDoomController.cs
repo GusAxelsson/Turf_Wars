@@ -9,6 +9,7 @@ public class ImpendingDoomController : MonoBehaviour
 
     public GameObject meteor;
     public GameObject shadow; 
+    public GameObject volcanoEvent;
     public float speed = 1.0F;
 
     private float totalDistance;
@@ -18,6 +19,7 @@ public class ImpendingDoomController : MonoBehaviour
         totalDistance = (meteor.transform.position - transform.position).magnitude;
         player1 = GameObject.FindGameObjectWithTag("Player1");
         player2 = GameObject.FindGameObjectWithTag("Player2");
+        volcanoEvent = GameObject.FindGameObjectWithTag("VolcanoEvent");
     }
 
     void Update()
@@ -32,6 +34,8 @@ public class ImpendingDoomController : MonoBehaviour
 
         if (meteor.transform.position == transform.position)
         {
+            AudioSource debrisSound = volcanoEvent.GetComponent<AudioSource>();
+            debrisSound.Play();
             hitPlayer();
             Destroy(this.gameObject);
         }
