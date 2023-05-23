@@ -38,6 +38,7 @@ public class MovementController : MonoBehaviour
     public float currentRange = 0.7f;
     public float rangePowerTime = 4.0f;
     public float currentRangeTimer = 4.0f;
+    public AudioSource rangeSound;
     // Stun Powerup(debuff) 3
     public bool stunPower;
     public float stunPowerTime = 6.0f;
@@ -261,6 +262,7 @@ public class MovementController : MonoBehaviour
         }
         if (powerUp == 4)
         {
+            rangeSound.Play();
             rangePower = true;
             currentRangeTimer = rangePowerTime;
 
