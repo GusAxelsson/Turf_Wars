@@ -49,14 +49,15 @@ public class PointSystem : MonoBehaviour
     float currentMultiplier()
     {
         float gameTime = Time.time - startTime;
-        return 1.0F + ((gameTime / 180.0F) * 9.0F);
+        float mult = Mathf.Round((1.0F + ((gameTime / 180.0F) * 9.0F)) * 2);
+        return mult / 2;
     }
 
     // points scale from 1000 per tic in at the start of the game to 10000 at the end of the game
     private int calcPoints()
     {
         float gameTime = Time.time - startTime;
-        return Mathf.FloorToInt(areaPoints * (1.0F + ((gameTime / 180.0F) * 9.0F)));
+        return Mathf.FloorToInt(areaPoints * currentMultiplier());
     }
 
     void animatePoints()
