@@ -1115,54 +1115,73 @@ MonoBehaviour:
   maxSpeed: 5
   directionFacing: {x: 0, y: 1}
   logMovement: 0
-  playerControls:
-    m_Name: Player Controls
+  playerControlUP:
+    m_Name: Player Control UP
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 76cb0fbb-f1e6-458a-9bf2-d47882da0be5
+    m_Id: 60f945a9-7cd1-4bdc-830b-0fd12b610896
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
-    - m_Name: 2D Vector
-      m_Id: e0ab02b3-5daa-46da-8f4e-d26f0ac3f656
-      m_Path: 2DVector
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Player Controls
-      m_Flags: 4
-    - m_Name: up
-      m_Id: fe183558-b1bf-4a9d-9fe8-4df4c1e0b8a6
+    - m_Name: 
+      m_Id: 731bd950-0c5a-4c28-bc69-9bc6c54cc78f
       m_Path: <Keyboard>/w
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Player Controls
-      m_Flags: 8
-    - m_Name: down
-      m_Id: 72343623-12a7-4231-8377-92c103d18068
-      m_Path: <Keyboard>/s
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Player Controls
-      m_Flags: 8
-    - m_Name: left
-      m_Id: 565cc056-a4cf-464f-9837-0c37194256c5
+      m_Action: Player Control UP
+      m_Flags: 0
+    m_Flags: 0
+  playerControlLEFT:
+    m_Name: Player Control LEFT
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: dfc7c2c1-b960-4c12-85c0-697cd3ccd7e9
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: fdb59cf2-377a-498b-b7eb-2789acc8969d
       m_Path: <Keyboard>/a
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Player Controls
-      m_Flags: 8
-    - m_Name: right
-      m_Id: 70e1a95b-caff-435a-8776-bc0816bd1e01
+      m_Action: Player Control LEFT
+      m_Flags: 0
+    m_Flags: 0
+  playerControlDOWN:
+    m_Name: Player Control DOWN
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 2b634b4d-fa4b-4202-a73d-59c77a68e65a
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: bab4c340-5815-4f50-b562-25a2ca934b98
+      m_Path: <Keyboard>/s
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Control DOWN
+      m_Flags: 0
+    m_Flags: 0
+  playerControlRIGHT:
+    m_Name: Player Control RIGHT
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: d184c0f5-fb47-4e5e-b8e0-6e3ef3510709
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 26cae9e6-6e36-4578-915d-a0b54c334f59
       m_Path: <Keyboard>/d
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Player Controls
-      m_Flags: 8
+      m_Action: Player Control RIGHT
+      m_Flags: 0
     m_Flags: 0
   animator: {fileID: 183733013}
   tileManager: {fileID: 798685488}
@@ -5142,54 +5161,73 @@ MonoBehaviour:
   maxSpeed: 6
   directionFacing: {x: 0, y: 1}
   logMovement: 0
-  playerControls:
-    m_Name: Player Controls
+  playerControlUP:
+    m_Name: Player Control UP
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 8367f8ad-05a5-43f4-ba1a-4775ff804b49
+    m_Id: d10b1ff6-c491-4652-9070-7bd963b8ee92
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
-    - m_Name: 2D Vector
-      m_Id: 38bc485d-c285-441c-ba70-91d1d71390a5
-      m_Path: 2DVector
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Player Controls
-      m_Flags: 4
-    - m_Name: up
-      m_Id: 09d8a52e-611a-45aa-a4f5-036cae510aa8
+    - m_Name: 
+      m_Id: ff5b8008-3b4e-4fbe-a4f9-36156cb7d48e
       m_Path: <Keyboard>/upArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Player Controls
-      m_Flags: 8
-    - m_Name: down
-      m_Id: 83917fc3-7294-4e42-ac18-4750dc53d38f
-      m_Path: <Keyboard>/downArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Player Controls
-      m_Flags: 8
-    - m_Name: left
-      m_Id: 80472074-a7ca-4088-9671-585a3bd728d4
+      m_Action: Player Control UP
+      m_Flags: 0
+    m_Flags: 0
+  playerControlLEFT:
+    m_Name: Player Control LEFT
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: f7874f7d-9d43-458b-aafa-acc9c4bf3483
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 4af35a5a-2562-41dc-8786-fec03f2079aa
       m_Path: <Keyboard>/leftArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Player Controls
-      m_Flags: 8
-    - m_Name: right
-      m_Id: 9ea80477-3154-4cc5-882d-fc86d5ee514a
+      m_Action: Player Control LEFT
+      m_Flags: 0
+    m_Flags: 0
+  playerControlDOWN:
+    m_Name: Player Control DOWN
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 5b4b22ed-ca00-44cb-8bd0-17da17bae3d4
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: bf72ec72-8c95-49e7-bec7-3f40d600496e
+      m_Path: <Keyboard>/downArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Control DOWN
+      m_Flags: 0
+    m_Flags: 0
+  playerControlRIGHT:
+    m_Name: Player Control RIGHT
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: ba89b6bd-9046-45fd-88a4-7c2d74bcaf0a
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 30239a03-36b3-40cb-8ba5-6b1ac5285fb8
       m_Path: <Keyboard>/rightArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Player Controls
-      m_Flags: 8
+      m_Action: Player Control RIGHT
+      m_Flags: 0
     m_Flags: 0
   animator: {fileID: 1280035399}
   tileManager: {fileID: 798685488}
