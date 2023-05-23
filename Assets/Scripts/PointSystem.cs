@@ -8,13 +8,16 @@ public class PointSystem : MonoBehaviour
     public TileManager tilemanager;
     public TextMeshProUGUI pointsPlantersText;
     public TextMeshProUGUI pointsMowersText;
+
+    public TextMeshProUGUI animatedPoints;
+
     public AudioSource pointsAudio;
     public int pointsPlanters = 0;
     public int pointsMowers = 0;
     private float startTime;
     private float timer;
     private int pointTimer = 5;
-    private int areaPoints = 1000;
+    private float areaPoints = 1000;
     private float grassPercentage;
 
     void Start()
@@ -44,7 +47,12 @@ public class PointSystem : MonoBehaviour
     private int calcPoints()
     {
         float gameTime = Time.time - startTime;
-        return areaPoints * Mathf.FloorToInt((1 + ((gameTime / 180) * 9)));
+        return Mathf.FloorToInt(areaPoints * (1.0F + ((gameTime / 180.0F) * 9.0F)));
+    }
+
+    void animatePoints()
+    {
+
     }
 
     // Adds points to the team covering over 50% of the area
