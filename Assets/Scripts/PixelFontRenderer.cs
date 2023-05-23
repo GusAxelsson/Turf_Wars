@@ -57,11 +57,6 @@ public class PixelFontRenderer : MonoBehaviour
             int index = rightBound ? text.Length - 1 - i : i;
             int spriteIndex = characters.IndexOf(char.ToUpper(text[index]));
 
-            if (text == "MOWER")
-            {
-                Debug.Log(text[index]);
-
-            }
 
             if (spriteIndex >= 0)
             {
