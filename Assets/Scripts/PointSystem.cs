@@ -43,8 +43,8 @@ public class PointSystem : MonoBehaviour
         grassPercentage = tilemanager.GetGrassPercentage();
         timer += Time.deltaTime;
 
-        // Reset timer when one team looses their 50% area control
-        if(grassPercentage == 50){
+        // Reset timer when one team looses their 60% area control
+        if(grassPercentage < 60 && grassPercentage > 40){
             timer = 0;
         }
 
