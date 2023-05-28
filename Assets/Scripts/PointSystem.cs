@@ -28,6 +28,8 @@ public class PointSystem : MonoBehaviour
     private int MoveValue;
     private Vector3 player1PointsDestination = new(11.5F, 7F, 0); // done like this to avoid changing the worldMap file
     private Vector3 player2PointsDestination = new(-11.5F, 7F, 0);
+    private bool pointBoostMower = true;
+    private bool pointBoostPlanter = true;
 
     void Start()
     {
@@ -53,6 +55,23 @@ public class PointSystem : MonoBehaviour
             AreaPoints();
             timer = 0;
         }
+
+        if (grassPercentage > 60 && pointBoostPlanter == true) {
+            AreaPoints();
+            pointBoostPlanter = false;
+            if (pointBoostMower == false) {
+                pointBoostMower = true;
+            }
+        }
+
+        else if (grassPercentage < 40 && pointBoostMower == true) {
+            AreaPoints();
+            pointBoostMower = false;
+            if (pointBoostPlanter == false) {
+                pointBoostPlanter = true;
+            }
+        }
+
         updateMultiplyText();
         // MovePoints();
     }
